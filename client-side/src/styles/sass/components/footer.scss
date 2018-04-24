@@ -1,0 +1,23 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+
+    background-image: linear-gradient(to right, rgba($color-tertiary-secondary-light, .8), rgba($color-tertiary-secondary-dark, .8));
+
+    &__ul {
+        list-style: none;
+
+        &__li {
+            margin: 0 1rem;
+            display: inline-block;
+
+            &__button {
+                padding: 1rem;
+            }
+        }
+    }
+
+}

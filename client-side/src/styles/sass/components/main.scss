@@ -1,0 +1,49 @@
+.main {
+    text-align: center;
+
+    &__notifications {
+        background-image: linear-gradient(to right, rgba(#f99, .8), rgba(#944, .8));
+        width: 10%;
+        display: block;
+        float: left;
+    }
+
+    &__right {
+        background-image: linear-gradient(to right, rgba($color-secondary-light, .8), rgba($color-secondary-dark, .8));
+        width: 90%;
+        display: inline-block;
+    }
+
+    &__month {
+        font-size: 4rem;
+        display: inline-block;
+        margin: 0 2rem;
+    }
+
+    &__previous {
+        padding: 1rem;
+    }
+
+    &__next {
+        padding: 1rem;
+    }
+
+    &__days {
+        font-size: 2.5rem;
+
+        &__day {
+            display: inline-block;
+            width: 13.5%;
+            text-align: center;
+        }
+    }
+
+    &__block {
+        cursor: pointer;
+        width: 13.5%;
+        display: inline-block;
+        padding: 6rem;
+        border: 1px solid $color-grey-dark;
+    }
+
+}

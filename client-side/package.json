@@ -1,0 +1,30 @@
+{
+  "name": "client-side",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:8080/",
+  "devDependencies": {
+    "node-sass": "^4.8.3"
+  },
+  "dependencies": {
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.22.1",
+    "node-sass": "^4.8.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-form": "^3.5.3",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "redux-form": "^7.3.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "watch:sass": "node-sass src/styles/sass/compile.scss src/styles/index.css -w",
+    "compile:sass": "node-sass src/styles/sass/compile.scss src/styles/index.css"
+  }
+}

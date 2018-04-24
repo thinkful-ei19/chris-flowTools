@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  padding: 0rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777; }
+
+button {
+  cursor: pointer; }
+
+.login {
+  padding: 2rem;
+  background-image: linear-gradient(to right, rgba(255, 153, 153, 0.8), rgba(153, 68, 68, 0.8));
+  font-size: 2rem; }
+  .login__label {
+    display: block; }
+  .login__input {
+    display: block;
+    font-size: 2rem; }
+  .login__button {
+    margin: 1rem 0 0 0;
+    padding: .5rem 1rem; }
+
+.nav {
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8));
+  padding: 2rem; }
+  .nav__h1 {
+    display: inline-block;
+    margin-right: 4rem; }
+  .nav__ul {
+    display: inline-block;
+    list-style: none; }
+    .nav__ul__li {
+      display: inline-block; }
+      .nav__ul__li__button {
+        padding: 1rem;
+        margin: 0 1rem; }
+
+.main {
+  text-align: center; }
+  .main__notifications {
+    background-image: linear-gradient(to right, rgba(255, 153, 153, 0.8), rgba(153, 68, 68, 0.8));
+    width: 10%;
+    display: block;
+    float: left; }
+  .main__right {
+    background-image: linear-gradient(to right, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8));
+    width: 90%;
+    display: inline-block; }
+  .main__month {
+    font-size: 4rem;
+    display: inline-block;
+    margin: 0 2rem; }
+  .main__previous {
+    padding: 1rem; }
+  .main__next {
+    padding: 1rem; }
+  .main__days {
+    font-size: 2.5rem; }
+    .main__days__day {
+      display: inline-block;
+      width: 13.5%;
+      text-align: center; }
+  .main__block {
+    cursor: pointer;
+    width: 13.5%;
+    display: inline-block;
+    padding: 6rem;
+    border: 1px solid #777; }
+
+.tasks {
+  background-image: linear-gradient(to right, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)); }
+  .tasks__day {
+    margin: 0 0 0 5rem;
+    font-size: 3rem; }
+  .tasks__ul__li {
+    padding: 1rem;
+    font-size: 2.5rem; }
+    .tasks__ul__li__input {
+      cursor: pointer; }
+    .tasks__ul__li__label {
+      cursor: pointer; }
+  .tasks__button {
+    margin: 1rem 0 1rem 2rem;
+    padding: 1rem; }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem;
+  background-image: linear-gradient(to right, rgba(41, 152, 255, 0.8), rgba(86, 67, 250, 0.8)); }
+  .footer__ul {
+    list-style: none; }
+    .footer__ul__li {
+      margin: 0 1rem;
+      display: inline-block; }
+      .footer__ul__li__button {
+        padding: 1rem; }

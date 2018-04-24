@@ -1,0 +1,27 @@
+.tasks {
+    background-image: linear-gradient(to right, rgba($color-secondary-light, .8), rgba($color-secondary-dark, .8));
+
+    &__day {
+        margin: 0 0 0 5rem;
+        font-size: 3rem;
+    }
+
+    &__ul {
+
+        &__li {
+            padding: 1rem;
+            font-size: 2.5rem;
+            &__input {
+                cursor: pointer;
+            }
+            &__label {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__button {
+        margin: 1rem 0 1rem 2rem;
+        padding: 1rem;
+    }
+}
