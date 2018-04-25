@@ -7,7 +7,7 @@ router.get('/notes', (req, res, next) => {
 
     const userId  = req.query.userId;
 
-    knex.select('notes.id', 'content', 'duedate', 'user_id')
+    knex.select('notes.id', 'content', 'duedate', 'user_id', 'checked')
         .from('notes')
         .modify(function(queryBuilder) {
             if (userId) {
@@ -33,13 +33,13 @@ router.get('/notes/:id', (req, res, next) => {
 })
 
 router.post('/notes', (req,res,next) => {
-    const { content, duedate, user_id } = req.body;
+    const { content, duedate, user_id, checked } = req.body;
 
-    const newNote = { content, duedate, user_id }
+    const newNote = { content, duedate, user_id, checked}
 
     knex('notes')
         .insert(newNote)
-        .returning(['content', 'duedate', 'user_id'])
+        .returning(['content', 'duedate', 'user_id', 'checked'])
         .then((result) => {
             res.json(result);
         })
@@ -49,15 +49,15 @@ router.post('/notes', (req,res,next) => {
 
 router.put('/notes/:id', (req,res,next) => {
     const { id } = req.params;
-    const { content, duedate, user_id } = req.body;
+    const { content, duedate, user_id, checked } = req.body;
 
-    const updateNote = { content, duedate, user_id }
+    const updateNote = { content, duedate, user_id, checked }
 
     knex.select()
         .from('notes')
         .where({id})
         .update(updateNote)
-        .returning(['content', 'duedate', 'user_id'])
+        .returning(['content', 'duedate', 'user_id', 'checked'])
         .then((result) => {
             res.location(`${req.originalUrl}/${result.id}`).status(201).json(result);
         })

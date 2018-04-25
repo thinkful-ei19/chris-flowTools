@@ -1,3 +1,11 @@
+.previous-month-day {
+  background-color: #55c57a;
+  opacity: .8; }
+
+.next-month-day {
+  background-color: #55c57a;
+  opacity: .8; }
+
 * {
   padding: 0;
   margin: 0;
@@ -16,7 +24,8 @@ body {
   color: #777; }
 
 button {
-  cursor: pointer; }
+  cursor: pointer;
+  color: #000; }
 
 .login {
   padding: 2rem;
@@ -90,7 +99,20 @@ button {
     .tasks__ul__li__input {
       cursor: pointer; }
     .tasks__ul__li__label {
+      display: inline-block;
       cursor: pointer; }
+    .tasks__ul__li__text {
+      display: inline-block; }
+    .tasks__ul__li__edit {
+      display: inline-block;
+      font-size: 2.5rem;
+      margin-right: .35rem; }
+      .tasks__ul__li__edit__button {
+        font-size: 2rem;
+        padding: .5rem .5rem 0 .5rem; }
+    .tasks__ul__li__delete-button {
+      font-size: 2rem;
+      padding: .5rem .5rem 0 .5rem; }
   .tasks__button {
     margin: 1rem 0 1rem 2rem;
     padding: 1rem; }

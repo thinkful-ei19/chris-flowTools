@@ -2,12 +2,6 @@ import jwtDecode from 'jwt-decode';
 import {API_BASE_URL} from '../config'
 import {normalizeResponseErrors} from './utils';
 
-export const SAVE_NOTES = 'SAVE_NOTES'
-export const saveNotes = (notes) => ({
-    type: SAVE_NOTES,
-    notes
-})
-
 export const SAVE_USER_ID = 'SAVE_USER_ID';
 export const saveUserId = (userId) => ({
     type: SAVE_USER_ID,
@@ -89,29 +83,29 @@ export const login = (username, password) => dispatch => {
         .catch(err => {
             console.log(err);
         })
-        //Get the note IDs
-        .then(() => {
-            fetch(`${API_BASE_URL}/api/notes`, {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${authTokenSave}`
-                }
-            })
-        .then((res) => res.json(res))
-        .then((res) => {
-            let notes = [];
-            res.forEach((note) => {
+    //     //Get the note IDs
+    //     .then(() => {
+    //         fetch(`${API_BASE_URL}/api/notes`, {
+    //             method: 'GET',
+    //             headers: {
+    //                 Authorization: `Bearer ${authTokenSave}`
+    //             }
+    //         })
+    //     .then((res) => res.json(res))
+    //     .then((res) => {
+    //         let notes = [];
+    //         res.forEach((note) => {
             
-                if (note.user_id === userIdSave) {
-                    notes.push(note.id);
-                }
-            })
-            dispatch(saveNotes(notes))
-            }
-        )
-        .catch(err => {
-            console.log(err);
-        })
-    })
+    //             if (note.user_id === userIdSave) {
+    //                 notes.push(note.id);
+    //             }
+    //         })
+    //         dispatch(saveNotes(notes))
+    //         }
+    //     )
+    //     .catch(err => {
+    //         console.log(err);
+    //     })
+    // })
     )
 }

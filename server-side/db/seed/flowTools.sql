@@ -21,7 +21,8 @@ CREATE TABLE notes (
     id serial PRIMARY KEY,
     content text,
     dueDate date NOT NULL,
-    user_id int REFERENCES users ON DELETE SET NULL
+    user_id int REFERENCES users ON DELETE SET NULL,
+    checked boolean
 );
 
 
@@ -43,26 +44,30 @@ INSERT INTO users (username, password, settings, widgets) VALUES
         "MixCloud": "on"}'
     );
 
-INSERT INTO notes (content, dueDate, user_id) VALUES
+INSERT INTO notes (content, dueDate, user_id, checked) VALUES
     (
         'Spend time learning Javascript',
         '2018-04-15',
-        1000
+        1000,
+        'false'
     ),
     (
         'Walk the dogs',
         '2018-04-15',
-        1000
+        1000,
+        'true'
     ),
     (
         'Spend time learning JQuery',
         '2018-04-16',
-        1000
+        1000,
+        'false'
     ),
     (
         'Spend time reviewing Javascript and JQuery',
         '2018-04-17',
-        1000
+        1000,
+        'false'
     );
 
 --users_notes

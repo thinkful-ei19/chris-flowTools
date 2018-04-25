@@ -3,53 +3,31 @@ import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
-import {login} from '../actions/auth'
+import {login} from '../actions/auth';
+import LoginForm from './login-form';
+import requiresLogin from './requires-login';
+import {Link, Redirect} from 'react-router-dom';
 
-export class Login extends React.Component {
-    constructor(props) {
-        super(props)
+export function Login (props) {
+
+    if (props.loggedIn) {
+        return <Redirect to="/calendar" />
     }
 
-    onSubmit(values) {
-        console.log(values);
+    function onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password))
     }
 
-    render() {
-        return (
+    return (
             <div className="login">
-                <form className="login__form"
-                    onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
-                >
-                    <label className="login__label" htmlFor="username">Username</label>
-                    {/* <input className="login__input"></input> */}
-                    <Field
-                        component={Input}
-                        type="text"
-                        name="username"
-                        id="username"
-                    />
-                    <label className="login__label" htmlFor="password">Password</label>
-                    {/* <input className="login__input"></input> */}
-                    <Field
-                        component={Input}
-                        type="password"
-                        name="password"
-                        id="password"
-                    />
-                    <button
-                        className="login__button"
-                        disabled={this.props.pristine || this.props.submitting}>
-                        Log in
-                    </button>
-                </form>
+                <LoginForm />
             </div>
         )
-    }
 
 }
 
-export default reduxForm({
-    form: 'login',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(Login);
+const mapStateToProps = state => ({
+    loggedIn: state.auth.userId !== null
+})
+
+export default (connect(mapStateToProps)(Login))

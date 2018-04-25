@@ -8,7 +8,7 @@ export default () => Component => {
         if (authenticating) {
             return <div>Logging in...</div>;
         } else if (!loggedIn || error) {
-            return <Redirect to="/calendar" />;
+            return <Redirect to="/login" />;
         }
 
         return <Component {...passThroughProps} />;
@@ -19,7 +19,7 @@ export default () => Component => {
 
     const mapStateToProps = (state, props) => ({
         authenticating: state.auth.loading,
-        loggedIn: state.auth.currentUser !== null,
+        loggedIn: state.auth.userId !== null,
         error: state.auth.error
     });
 

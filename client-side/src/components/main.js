@@ -6,6 +6,8 @@ import moment from 'moment';
 import {fetchProtectedData} from '../actions/users';
 import {login} from './login';
 import requiresLogin from './requires-login';
+import {Link, Redirect} from 'react-router-dom';
+import {selectMonth, selectYear} from '../actions/tasks'
 
 import DaysRow from './daysRow';
 import DateRows from './dateRows';
@@ -16,37 +18,71 @@ export class Main extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this)
-        // this.props.dispatch(fetchProtectedData());
+        console.log(this.props)
+        this.props.dispatch(fetchProtectedData(this.props.userId));
     }
 
     render() {
-        const monthYear = moment().format('MMMM YYYY');
+        let currentMonth = this.props.selectedMonth;
+        let currentYear = this.props.selectedYear;
+        const bindThis = this;
+        function increment() {
+            currentMonth ++
+            if (currentMonth > 12) {
+                currentMonth = 1
+                currentYear ++
+                bindThis.props.dispatch(selectYear(currentYear))
+            }
+            if (currentMonth < 10) {
+                currentMonth = '0' + currentMonth
+            }
+            bindThis.props.dispatch(selectMonth(currentMonth))
+        }
+        function decrement() {
+            currentMonth --
+            if (currentMonth < 1) {
+                currentMonth = 12
+                currentYear --
+                bindThis.props.dispatch(selectYear(currentYear))
+            }
+            if (currentMonth < 10) {
+                currentMonth = '0' + currentMonth
+            }
+            bindThis.props.dispatch(selectMonth(currentMonth))
+        }
+        const monthYear = moment(String(`${currentYear}-${currentMonth}`)).format('MMMM YYYY');
 
-        return (
-            <div className="main">
-                <div className="main__notifications">
-                    <Notifications />
-                </div>
-                <div className="main__right">
-                    <button className="main__previous">Previous</button>
-                    <h2 className="main__month">{monthYear}</h2>
-                    <button className="main__next">Next</button>
-                    <div className="main__calendar">
-                        <DaysRow />
-                        <DateRows />
+        if (this.props.selectedDate) {
+            return <Redirect to='/tasks' />
+        }
+        else {
+            return (
+                <div className="main">
+                    <div className="main__notifications">
+                        <Notifications />
+                    </div>
+                    <div className="main__right">
+                        <button onClick={decrement} className="main__previous">Previous</button>
+                        <h2 className="main__month">{monthYear}</h2>
+                        <button onClick={increment} className="main__next">Next</button>
+                        <div className="main__calendar">
+                            <DaysRow />
+                            <DateRows />
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     return({
-        userId: state.auth.userId
+        userId: state.auth.userId,
+        selectedDate: state.tasks.selectedDate,
+        selectedMonth: state.tasks.selectedMonth,
+        selectedYear: state.tasks.selectedYear
     })
 }
 

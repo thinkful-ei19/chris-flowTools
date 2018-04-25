@@ -20,7 +20,3 @@ export default class Footer extends React.Component {
     }
 
 }
-
-//const mapStateToProps = state => ({})
-
-//export default withRouter(connect(mapStateToProps)(Nav))
