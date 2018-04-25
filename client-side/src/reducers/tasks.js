@@ -1,4 +1,4 @@
-import { GET_TASKS, UNSELECT_DATE, SELECT_NOTE, SELECT_MONTH, SELECT_YEAR } from "../actions/tasks";
+import { GET_TASKS, UNSELECT_DATE, SELECT_NOTE, SELECT_MONTH, SELECT_YEAR, UNSELECT_NOTE } from "../actions/tasks";
 import { FETCH_PROTECTED_DATA_SUCCESS, FETCH_PROTECTED_DATA_ERROR } from '../actions/users';
 import moment from 'moment';
 
@@ -40,16 +40,19 @@ export default function reducer(state = initialState, action) {
             selectedNote: action.selectedNote
         })
     }  else if (action.type === SELECT_MONTH) {
-        console.log('selected month: ' + action.month)
         return Object.assign({}, state, {
             selectedMonth: String(action.month)
         })
     }  else if (action.type === SELECT_YEAR) {
-        console.log('selected month: ' + action.month)
         return Object.assign({}, state, {
             selectedYear: String(action.year)
         })
-    }
+    }   else if (action.type === UNSELECT_NOTE) {
+        return Object.assign({}, state, {
+            selectedNote: null
+        })
+    } 
+
 
     console.log(state);
 

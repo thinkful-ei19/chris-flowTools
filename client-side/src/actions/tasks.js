@@ -18,6 +18,11 @@ export const unselectDate = () => ({
     type: UNSELECT_DATE
 })
 
+export const UNSELECT_NOTE = 'UNSELECT_NOTE';
+export const unselectNote = () => ({
+    type: UNSELECT_NOTE
+})
+
 export const SELECT_NOTE = 'SELECT_NOTE';
 export const selectNote = (selectedNote) => ({
     type: SELECT_NOTE,

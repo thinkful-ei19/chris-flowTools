@@ -2,15 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import {Link, Redirect} from 'react-router-dom';
-import { unselectDate, selectNote, postNewTask, deleteTask, updateTask } from '../actions/tasks'
+import { unselectDate, selectNote, postNewTask, deleteTask, updateTask, unselectNote } from '../actions/tasks'
 import EditForm from './edit-form';
 import moment from 'moment';
+import onClickOutside from "react-onclickoutside";
 
 export class Tasks extends React.Component {
     constructor(props) {
         super(props)
     }
 
+    onClickOutside = evt => {
+        this.props.dispatch((unselectNote()))
+    }
 
     render() {
         const bindThis = this;
@@ -34,7 +38,6 @@ export class Tasks extends React.Component {
         }
 
         function deleteThis(note) {
-            console.log(note.target.id)
             bindThis.props.dispatch(deleteTask(note.target.id, bindThis.props.userId))
         }
 
@@ -59,7 +62,7 @@ export class Tasks extends React.Component {
                 return (
                     <li key={note.id} id={note.id} className="tasks__ul__li">
                     <input onChange={checkIt} defaultChecked={note.checked} value={note.id} id={inputId} className="tasks__ul__li__input" type="checkbox" />
-                    <label htmlFor={inputId} className="tasks__ul__li__label">(B)</label>
+                    <label htmlFor={inputId} className="tasks__ul__li__label"><span class="tasks__ul__li__label__check">&#10003;</span></label>
                     <p id={note.id} onClick={dispatchSelect} className="tasks__ul__li__text">{note.content}</p>
                     </li>
                 )
@@ -73,7 +76,7 @@ export class Tasks extends React.Component {
             return (
                 <div className="tasks">
                     <h4 className="tasks__day">{formattedDate}</h4>
-                    <a href="#" onClick={exit}>Exit</a>
+                    <a className="tasks__exit" onClick={exit}>&#215;</a>
                     <ul className="tasks__ul">
                         {buildJSX}
                     </ul>

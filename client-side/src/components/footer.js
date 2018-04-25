@@ -11,9 +11,9 @@ export default class Footer extends React.Component {
         return (
             <div className="footer">
                 <ul className="footer__ul">
-                    <li className="footer__ul__li"><button className="footer__ul__li__button">Pomodoro</button></li>
-                    <li className="footer__ul__li"><button className="footer__ul__li__button">Youtube</button></li>
-                    <li className="footer__ul__li"><button className="footer__ul__li__button">Slack</button></li>
+                    <li className="footer__ul__li"><a className="footer__ul__li__button">Pomodoro</a></li>
+                    <li className="footer__ul__li"><a className="footer__ul__li__button">Youtube</a></li>
+                    <li className="footer__ul__li"><a className="footer__ul__li__button">Slack</a></li>
                 </ul>
             </div>
         )

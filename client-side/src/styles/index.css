@@ -1,8 +1,23 @@
+@keyframes expandDown {
+  0% {
+    transform: translateY(-40%); }
+  100% {
+    transform: translateY(0%); } }
+
 .previous-month-day {
-  opacity: .8; }
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(119, 119, 119, 0.35)); }
 
 .next-month-day {
-  opacity: .8; }
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(119, 119, 119, 0.35)); }
+
+.overdue-task {
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0.35)); }
+  .overdue-task:hover {
+    backface-visibility: hidden;
+    background-color: red; }
 
 * {
   padding: 0;
@@ -39,42 +54,72 @@ button {
 
 .nav {
   width: 100%;
+  height: 6.25vh;
   padding: 1rem 0 0rem 3rem;
-  border-bottom: 1px solid grey; }
+  border-bottom: 1px solid grey;
+  background-color: #57BC90; }
   .nav__h1 {
     font-size: 3rem;
     display: inline-block;
-    margin-right: 4rem; }
+    margin-right: 4rem;
+    color: #fff; }
+    .nav__h1:hover {
+      color: #015249; }
   .nav__ul {
-    display: inline-block;
-    list-style: none; }
+    float: right;
+    list-style: none;
+    margin-right: 3rem; }
     .nav__ul__li {
       display: inline-block; }
       .nav__ul__li__button {
-        text-align: right;
-        padding: 1rem;
-        margin: 0 1rem;
-        border-radius: 1rem; }
+        cursor: pointer;
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        padding: 2rem;
+        font-size: 2rem; }
+        .nav__ul__li__button:hover {
+          color: #015249; }
+        .nav__ul__li__button:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1rem;
+          bottom: 0;
+          left: 0;
+          background-color: #015249;
+          opacity: .3;
+          visibility: hidden;
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+          -webkit-transition: all 0.3s ease-in-out 0s;
+          transition: all 0.3s ease-in-out 0s; }
+        .nav__ul__li__button:hover:before {
+          visibility: visible;
+          -webkit-transform: scale(1);
+          transform: scale(1); }
 
 .main {
-  text-align: center; }
-  .main__notifications {
-    width: 20%;
-    display: block;
-    float: left; }
-    .main__notifications__li {
-      border: 1px solid black; }
+  text-align: center;
+  height: 90vh;
+  background-image: linear-gradient(to right, rgba(87, 188, 144, 0.2), rgba(1, 82, 73, 0.3)); }
   .main__right {
     width: 80%;
     display: inline-block; }
   .main__month {
+    text-align: center;
     font-size: 4rem;
-    display: inline-block;
-    margin: 0 2rem; }
+    display: inline-block; }
   .main__previous {
-    padding: 1rem; }
+    position: absolute;
+    top: 8%;
+    left: 45%;
+    font-size: 4rem; }
   .main__next {
-    padding: 1rem; }
+    position: absolute;
+    top: 8%;
+    left: 72%;
+    font-size: 4rem; }
   .main__days {
     font-size: 2.5rem; }
     .main__days__day {
@@ -85,48 +130,176 @@ button {
     cursor: pointer;
     width: 13.5%;
     display: inline-block;
-    padding: 6rem;
+    padding: 3rem;
+    font-size: 4rem;
     border: 1px solid #777; }
+    .main__block:hover {
+      background-color: #77C9D4;
+      transform: scale(1.05);
+      z-index: 1;
+      transition: .1s; }
 
-.tasks__day {
-  margin: 0 0 0 5rem;
-  font-size: 3rem; }
-
-.tasks__ul__li {
-  padding: 1rem;
-  font-size: 2.5rem; }
-  .tasks__ul__li__input {
-    cursor: pointer; }
-  .tasks__ul__li__label {
-    display: inline-block;
-    cursor: pointer; }
-  .tasks__ul__li__text {
-    display: inline-block; }
-  .tasks__ul__li__edit {
-    display: inline-block;
-    font-size: 2.5rem;
-    margin-right: .35rem; }
-    .tasks__ul__li__edit__button {
+.tasks {
+  height: 90vh;
+  background-image: linear-gradient(to bottom left, rgba(87, 188, 144, 0.5), rgba(1, 82, 73, 0.5)); }
+  .tasks__day {
+    margin: 0 0 0 5rem;
+    font-size: 5rem; }
+  .tasks__exit {
+    position: absolute;
+    top: 10rem;
+    right: 10rem;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 0rem 1.75rem;
+    border-radius: 2rem;
+    background-color: #57BC90; }
+    .tasks__exit:hover {
+      background-color: #015249; }
+  .tasks__ul__li {
+    padding: 1rem;
+    font-size: 2.5rem; }
+    .tasks__ul__li__input {
+      cursor: pointer;
+      width: 5rem;
+      height: 5rem;
+      position: absolute;
+      margin-left: 1rem; }
+    .tasks__ul__li__label {
+      visibility: hidden;
+      transform: scale(0);
+      display: inline-block;
+      cursor: pointer;
+      height: 3rem;
+      width: 3rem;
+      border: 5px solid #57BC90;
+      border-radius: 50%;
+      position: absolute;
+      font-size: 1.6rem; }
+      .tasks__ul__li__label__check {
+        font-size: 5rem;
+        position: relative;
+        top: -3rem;
+        left: -1rem;
+        color: #015249; }
+    .tasks__ul__li__text {
+      display: inline-block;
+      margin-top: 1rem;
+      margin-left: 9rem; }
+    .tasks__ul__li__edit {
+      display: inline-block;
+      font-size: 2.5rem;
+      margin-right: .35rem; }
+      .tasks__ul__li__edit__button {
+        font-size: 2rem;
+        padding: .5rem .5rem 0 .5rem; }
+    .tasks__ul__li__delete-button {
       font-size: 2rem;
       padding: .5rem .5rem 0 .5rem; }
-  .tasks__ul__li__delete-button {
-    font-size: 2rem;
-    padding: .5rem .5rem 0 .5rem; }
-
-.tasks__button {
-  margin: 1rem 0 1rem 2rem;
-  padding: 1rem; }
+  .tasks__button {
+    margin: 1rem 0 1rem 2rem;
+    padding: 1rem; }
 
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 2rem; }
+  padding: 2rem;
+  height: 6.25vh;
+  background-color: #57BC90; }
   .footer__ul {
-    list-style: none; }
+    list-style: none;
+    margin-right: 3rem; }
     .footer__ul__li {
-      margin: 0 1rem;
       display: inline-block; }
       .footer__ul__li__button {
-        padding: 1rem; }
+        cursor: pointer;
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        padding: 2rem;
+        font-size: 2rem; }
+        .footer__ul__li__button:hover {
+          color: #015249; }
+        .footer__ul__li__button:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1rem;
+          top: 0;
+          left: 0;
+          background-color: #015249;
+          opacity: .3;
+          visibility: hidden;
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+          -webkit-transition: all 0.3s ease-in-out 0s;
+          transition: all 0.3s ease-in-out 0s; }
+        .footer__ul__li__button:hover:before {
+          visibility: visible;
+          -webkit-transform: scale(1);
+          transform: scale(1); }
+
+.notifications {
+  width: 20%;
+  height: 93.75vh;
+  display: block;
+  float: left;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  z-index: -1;
+  background-image: linear-gradient(to bottom right rgba(87, 188, 144, 0.1), rgba(87, 188, 144, 0.1)); }
+  .notifications__header {
+    font-size: 2.25rem;
+    border-bottom: 1px solid #000; }
+  .notifications__li {
+    border-bottom: 1px solid black; }
+    .notifications__li:hover {
+      backface-visibility: hidden;
+      background-image: linear-gradient(to bottom right rgba(87, 188, 144, 0.4), rgba(87, 188, 144, 0.4));
+      color: #000; }
+      .notifications__li:hover .notifications__options {
+        visibility: visible;
+        display: inline-block;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        animation-name: expandDown;
+        animation-duration: .5s;
+        animation-timing-function: ease-out; }
+  .notifications__note {
+    font-size: 2rem;
+    display: block; }
+  .notifications__options {
+    visibility: hidden;
+    display: none;
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  .notifications__checkbox {
+    visibility: hidden; }
+  .notifications__check, .notifications__delete, .notifications__due {
+    position: relative;
+    text-decoration: none;
+    padding: 0 .5rem;
+    cursor: pointer; }
+    .notifications__check:hover, .notifications__delete:hover, .notifications__due:hover {
+      color: #015249; }
+    .notifications__check:before, .notifications__delete:before, .notifications__due:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2.5rem;
+      bottom: 1;
+      left: 0;
+      background-color: #015249;
+      opacity: .3;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s; }
+    .notifications__check:hover:before, .notifications__delete:hover:before, .notifications__due:hover:before {
+      backface-visibility: hidden;
+      visibility: visible;
+      -webkit-transform: scale(1);
+      transform: scale(1); }

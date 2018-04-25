@@ -1,0 +1,99 @@
+.notifications {
+    width: 20%;
+    height: 93.75vh;
+    display: block;
+    float: left;
+    border-right: 1px solid $color-black;
+    border-bottom: 1px solid $color-black;
+    z-index: -1;
+    background-image: linear-gradient(to bottom right rgba($color-primary, .1), rgba($color-primary, .1));
+    
+    &__header {
+        font-size: 2.25rem;
+        border-bottom: 1px solid $color-black;
+        
+    }
+
+    &__li {
+        border-bottom: 1px solid black;
+
+        &:hover {
+            backface-visibility: hidden;
+            background-image: linear-gradient(to bottom right rgba($color-primary, .4), rgba($color-primary, .4));
+            color: $color-black;
+            
+            .notifications__options {
+                visibility: visible;
+                display: inline-block;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                animation-name: expandDown;
+                animation-duration: .5s;
+                animation-timing-function: ease-out;
+            }
+        }
+    }
+
+    &__note {
+        font-size: 2rem;
+        display: block;
+    }
+
+    &__options {
+        visibility: hidden;
+        display: none;
+        -webkit-transform: scale(0);
+        transform: scale(0); 
+    }
+
+    &__checkbox {
+        visibility: hidden;
+    }
+
+    &__check, &__delete, &__due {
+        position: relative;
+        text-decoration: none;
+        padding: 0 .5rem;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-secondary;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2.5rem;
+            bottom: 1;
+            left: 0;
+            background-color: $color-secondary;
+            opacity: .3;
+            visibility: hidden;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        &:hover:before {
+            backface-visibility: hidden;
+            visibility: visible;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        
+    }
+
+    // &__fake-checkbox {
+    //     height: 3rem;
+    //     width: 3rem;
+    //     border: 5px solid $color-primary;
+    //     border-radius: 50%;
+    //     display: inline-block;
+    //     position: absolute;
+
+    //     font-size: $default-font-size;
+    //     cursor: pointer;
+    // }
+}

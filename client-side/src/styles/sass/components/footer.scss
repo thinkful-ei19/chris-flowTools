@@ -4,16 +4,50 @@
     bottom: 0;
     width: 100%;
     padding: 2rem;
+    height: 6.25vh;
+    background-color: $color-primary;
 
     &__ul {
         list-style: none;
+        margin-right: 3rem;
 
         &__li {
-            margin: 0 1rem;
             display: inline-block;
 
             &__button {
-                padding: 1rem;
+                cursor: pointer;
+                position: relative;
+                color: $color-white;
+                text-decoration: none;
+                padding: 2rem;
+                font-size: 2rem;
+
+                &:hover {
+                    color: $color-secondary;
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 1rem;
+                    top: 0;
+                    left: 0;
+                    background-color: $color-secondary;
+                    opacity: .3;
+                    visibility: hidden;
+                    -webkit-transform: scaleX(0);
+                    transform: scaleX(0);
+                    -webkit-transition: all 0.3s ease-in-out 0s;
+                    transition: all 0.3s ease-in-out 0s;
+                }
+    
+                &:hover:before {
+                    visibility: visible;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+                
             }
         }
     }

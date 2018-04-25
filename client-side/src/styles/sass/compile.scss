@@ -1,15 +1,13 @@
-@import "global";
-
 @import "variables/colors";
-@import "mixins/utils";
 @import "mixins/animations";
+@import "mixins/utils";
+@import "global";
 
 @import "components/app";
 @import "components/login";
 @import "components/nav";
 @import "components/main";
 @import "components/tasks";
-@import "components/calendar";
 @import "components/footer";
 @import "components/notifications";
 

@@ -1,26 +1,63 @@
 .nav {
     width: 100%;
+    height: 6.25vh;
     padding: 1rem 0 0rem 3rem;
     border-bottom: 1px solid grey;
+    background-color: $color-primary;
 
     &__h1 {
         font-size: 3rem;
         display: inline-block;
         margin-right: 4rem;
+        color: $color-white;
+
+        &:hover {
+            color: $color-secondary;
+        }
     }
 
     &__ul {
-        display: inline-block;
+        float: right;
         list-style: none;
+        margin-right: 3rem;
 
         &__li {
             display: inline-block;
 
             &__button {
-                text-align: right;
-                padding: 1rem;
-                margin: 0 1rem;
-                border-radius: 1rem;
+                cursor: pointer;
+                position: relative;
+                color: $color-white;
+                text-decoration: none;
+                padding: 2rem;
+                font-size: 2rem;
+
+                &:hover {
+                    color: $color-secondary;
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 1rem;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $color-secondary;
+                    opacity: .3;
+                    visibility: hidden;
+                    -webkit-transform: scaleX(0);
+                    transform: scaleX(0);
+                    -webkit-transition: all 0.3s ease-in-out 0s;
+                    transition: all 0.3s ease-in-out 0s;
+                }
+    
+                &:hover:before {
+                    visibility: visible;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+                
             }
         }
     }

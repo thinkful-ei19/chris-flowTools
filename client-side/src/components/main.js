@@ -60,9 +60,9 @@ export class Main extends React.Component {
                 <div className="main">
                     <Notifications />
                     <div className="main__right">
-                        <button onClick={decrement} className="main__previous">Previous</button>
+                        <button onClick={decrement} className="main__previous">&#8592;</button>
                         <h2 className="main__month">{monthYear}</h2>
-                        <button onClick={increment} className="main__next">Next</button>
+                        <button onClick={increment} className="main__next">&#8594;</button>
                         <div className="main__calendar">
                             <DaysRow />
                             <DateRows />

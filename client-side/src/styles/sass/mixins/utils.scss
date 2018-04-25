@@ -1,7 +1,19 @@
 .previous-month-day {
-    opacity: .8
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba($color-grey-dark, .35));
 }
 
 .next-month-day {
-    opacity: .8
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba($color-grey-dark, .35));
+}
+
+.overdue-task {
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba(red, .35));
+
+    &:hover {
+        backface-visibility: hidden;
+        background-color: red;
+    }
 }

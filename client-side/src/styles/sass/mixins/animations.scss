@@ -1,0 +1,9 @@
+@keyframes expandDown {
+    0% {
+        transform: translateY(-40%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}

@@ -1,33 +1,32 @@
 .main {
     text-align: center;
-
-    &__notifications {
-        width: 20%;
-        display: block;
-        float: left;
-
-        &__li {
-            border: 1px solid black;
-        }
-    }
+    height: 90vh;
+    background-image: linear-gradient(to right, rgba($color-primary, 0.2), rgba($color-secondary, 0.3));
 
     &__right {
         width: 80%;
         display: inline-block;
+
     }
 
     &__month {
+        text-align: center;
         font-size: 4rem;
         display: inline-block;
-        margin: 0 2rem;
     }
 
     &__previous {
-        padding: 1rem;
+        position: absolute;
+        top: 8%;
+        left: 45%;
+        font-size: 4rem;
     }
 
     &__next {
-        padding: 1rem;
+        position: absolute;
+        top: 8%;
+        left: 72%;
+        font-size: 4rem;
     }
 
     &__days {
@@ -44,8 +43,16 @@
         cursor: pointer;
         width: 13.5%;
         display: inline-block;
-        padding: 6rem;
+        padding: 3rem;
+        font-size: 4rem;
         border: 1px solid $color-grey-dark;
+
+        &:hover {
+            background-color: $color-third;
+            transform: scale(1.05);
+            z-index: 1;
+            transition: .1s;
+        }
     }
 
 }
