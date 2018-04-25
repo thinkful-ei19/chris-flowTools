@@ -12,6 +12,7 @@ class App extends Component {
     return (
       <div className="app">
         <Nav />
+        <Route exact path="/" component={Login} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/calendar" component={Main} />
         <Route exact path="/tasks" component={Tasks} />

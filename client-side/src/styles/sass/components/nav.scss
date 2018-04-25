@@ -1,9 +1,10 @@
 .nav {
     width: 100%;
-    background-image: linear-gradient(to right, rgba($color-primary-light, .8), rgba($color-primary-dark, .8));
-    padding: 2rem;
+    padding: 1rem 0 0rem 3rem;
+    border-bottom: 1px solid grey;
 
     &__h1 {
+        font-size: 3rem;
         display: inline-block;
         margin-right: 4rem;
     }
@@ -16,8 +17,10 @@
             display: inline-block;
 
             &__button {
+                text-align: right;
                 padding: 1rem;
                 margin: 0 1rem;
+                border-radius: 1rem;
             }
         }
     }

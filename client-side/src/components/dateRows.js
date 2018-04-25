@@ -13,33 +13,21 @@ export class DateRows extends React.Component {
         const currentYear = moment().format('YYYY');
         
         const currentMonth = String(this.props.selectedMonth)
-        console.log(currentMonth);
         const maxDays = moment(`${currentMonth}`).daysInMonth()
 
         const firstDayOfMonth = moment(`${currentYear}-${currentMonth}`).startOf('month').format('e');
-        const previousMonth = moment(`${currentYear}-${currentMonth-1}`).format('YYYY-' + String(currentMonth));
-        const maxDaysPrevious = moment(`${currentMonth}`).daysInMonth();
-
-        console.log({
-            firstDayOfMonth, maxDays, previousMonth, maxDaysPrevious
-        })
+        const previousMonthDate = moment(`${currentYear}-${currentMonth}`).subtract(1, 'months').endOf('month').format('YYYY-MM-DD')
+        const maxDaysPrevious = moment(`${previousMonthDate}`).daysInMonth();
+        const previousMonth = previousMonthDate.slice(5, 7);
 
         let dateArray = [];
         //First Push the previous month's days
         for (let i=maxDaysPrevious; i>maxDaysPrevious-firstDayOfMonth; i--) {
-            if (currentMonth >= 10) {
-                dateArray.push({
-                    value: `${currentYear}-${currentMonth-1}-${i}`,
-                    day: `${i}`,
-                    ref: 'previous'
-                });
-            } else {
-                dateArray.push({
-                    value: `${currentYear}-0${currentMonth-1}-${i}`,
-                    day: `${i}`,
-                    ref: 'previous'
-                });
-            }
+            dateArray.push({
+                value: `${currentYear}-${previousMonth}-${i}`,
+                day: `${i}`,
+                ref: 'previous'
+            });
         }
         dateArray.reverse();
 
@@ -67,6 +55,8 @@ export class DateRows extends React.Component {
             }
             )
         }
+        //Force Stop at 35 blocks
+        dateArray = dateArray.slice(0, 35);
 
         const dispatchGetTasks = (value) => {
             this.props.dispatch(getTasks(value))

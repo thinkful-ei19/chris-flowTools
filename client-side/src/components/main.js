@@ -58,9 +58,7 @@ export class Main extends React.Component {
         else {
             return (
                 <div className="main">
-                    <div className="main__notifications">
-                        <Notifications />
-                    </div>
+                    <Notifications />
                     <div className="main__right">
                         <button onClick={decrement} className="main__previous">Previous</button>
                         <h2 className="main__month">{monthYear}</h2>

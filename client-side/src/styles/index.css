@@ -1,9 +1,7 @@
 .previous-month-day {
-  background-color: #55c57a;
   opacity: .8; }
 
 .next-month-day {
-  background-color: #55c57a;
   opacity: .8; }
 
 * {
@@ -29,7 +27,6 @@ button {
 
 .login {
   padding: 2rem;
-  background-image: linear-gradient(to right, rgba(255, 153, 153, 0.8), rgba(153, 68, 68, 0.8));
   font-size: 2rem; }
   .login__label {
     display: block; }
@@ -42,9 +39,10 @@ button {
 
 .nav {
   width: 100%;
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8));
-  padding: 2rem; }
+  padding: 1rem 0 0rem 3rem;
+  border-bottom: 1px solid grey; }
   .nav__h1 {
+    font-size: 3rem;
     display: inline-block;
     margin-right: 4rem; }
   .nav__ul {
@@ -53,19 +51,21 @@ button {
     .nav__ul__li {
       display: inline-block; }
       .nav__ul__li__button {
+        text-align: right;
         padding: 1rem;
-        margin: 0 1rem; }
+        margin: 0 1rem;
+        border-radius: 1rem; }
 
 .main {
   text-align: center; }
   .main__notifications {
-    background-image: linear-gradient(to right, rgba(255, 153, 153, 0.8), rgba(153, 68, 68, 0.8));
-    width: 10%;
+    width: 20%;
     display: block;
     float: left; }
+    .main__notifications__li {
+      border: 1px solid black; }
   .main__right {
-    background-image: linear-gradient(to right, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8));
-    width: 90%;
+    width: 80%;
     display: inline-block; }
   .main__month {
     font-size: 4rem;
@@ -88,42 +88,41 @@ button {
     padding: 6rem;
     border: 1px solid #777; }
 
-.tasks {
-  background-image: linear-gradient(to right, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)); }
-  .tasks__day {
-    margin: 0 0 0 5rem;
-    font-size: 3rem; }
-  .tasks__ul__li {
-    padding: 1rem;
-    font-size: 2.5rem; }
-    .tasks__ul__li__input {
-      cursor: pointer; }
-    .tasks__ul__li__label {
-      display: inline-block;
-      cursor: pointer; }
-    .tasks__ul__li__text {
-      display: inline-block; }
-    .tasks__ul__li__edit {
-      display: inline-block;
-      font-size: 2.5rem;
-      margin-right: .35rem; }
-      .tasks__ul__li__edit__button {
-        font-size: 2rem;
-        padding: .5rem .5rem 0 .5rem; }
-    .tasks__ul__li__delete-button {
+.tasks__day {
+  margin: 0 0 0 5rem;
+  font-size: 3rem; }
+
+.tasks__ul__li {
+  padding: 1rem;
+  font-size: 2.5rem; }
+  .tasks__ul__li__input {
+    cursor: pointer; }
+  .tasks__ul__li__label {
+    display: inline-block;
+    cursor: pointer; }
+  .tasks__ul__li__text {
+    display: inline-block; }
+  .tasks__ul__li__edit {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin-right: .35rem; }
+    .tasks__ul__li__edit__button {
       font-size: 2rem;
       padding: .5rem .5rem 0 .5rem; }
-  .tasks__button {
-    margin: 1rem 0 1rem 2rem;
-    padding: 1rem; }
+  .tasks__ul__li__delete-button {
+    font-size: 2rem;
+    padding: .5rem .5rem 0 .5rem; }
+
+.tasks__button {
+  margin: 1rem 0 1rem 2rem;
+  padding: 1rem; }
 
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 2rem;
-  background-image: linear-gradient(to right, rgba(41, 152, 255, 0.8), rgba(86, 67, 250, 0.8)); }
+  padding: 2rem; }
   .footer__ul {
     list-style: none; }
     .footer__ul__li {

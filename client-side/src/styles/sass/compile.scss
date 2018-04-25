@@ -1,6 +1,8 @@
+@import "global";
+
 @import "variables/colors";
 @import "mixins/utils";
-@import "global";
+@import "mixins/animations";
 
 @import "components/app";
 @import "components/login";
