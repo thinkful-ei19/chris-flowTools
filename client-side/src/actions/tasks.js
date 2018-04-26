@@ -46,6 +46,18 @@ export const selectYear = (year) => ({
     year
 })
 
+export const SELECT_WEEK = 'SELECT_WEEK';
+export const selectWeek = (action) => ({
+    type: SELECT_WEEK,
+    action
+})
+
+export const SET_WEEK = 'SET_WEEK';
+export const setWeek = (week) => ({
+    type: SET_WEEK,
+    week
+})
+
 export const postNewTask = (date, userId) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     const postNote = {

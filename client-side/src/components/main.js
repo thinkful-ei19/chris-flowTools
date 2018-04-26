@@ -15,6 +15,10 @@ import DateRows from './dateRows';
 export class Main extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            redirect: false
+        }
     }
 
     componentDidMount() {
@@ -52,13 +56,20 @@ export class Main extends React.Component {
         }
         const monthYear = moment(String(`${currentYear}-${currentMonth}`)).format('MMMM YYYY');
 
+        function redirectToWeekly() {
+            bindThis.setState({redirect: true})            
+        }
+
         if (this.props.selectedDate) {
             return <Redirect to='/tasks' />
+        } else if (this.state.redirect === true) {
+            return <Redirect to='/weekly' />
         }
         else {
             return (
                 <div className="main">
                     <Notifications />
+                    <a onClick={redirectToWeekly} className="main__toggleWeekly" >Toggle Weekly View</a>
                     <div className="main__right">
                         <button onClick={decrement} className="main__previous">&#8592;</button>
                         <h2 className="main__month">{monthYear}</h2>

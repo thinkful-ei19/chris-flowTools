@@ -1,12 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
-import {Field, reduxForm, focus} from 'redux-form';
-import Input from './input';
 import {login} from '../actions/auth';
 import LoginForm from './login-form';
-import requiresLogin from './requires-login';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 export function Login (props) {
 

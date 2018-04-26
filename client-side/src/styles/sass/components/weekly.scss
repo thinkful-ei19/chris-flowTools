@@ -1,23 +1,17 @@
-.main {
+.weekly {
     text-align: center;
     height: 90vh;
     background-image: linear-gradient(to right, rgba($color-primary, 0.2), rgba($color-secondary, 0.3));
 
-    &__toggleWeekly {
+    &__toggleMonthly {
         cursor: pointer;
         font-weight: bold;
         color: $color-secondary;
         text-align: left;
         font-size: 2rem;
-        left: 22.5%;
+        left: 10%;
         top: 8%;
         position: absolute;
-    }
-
-    &__right {
-        width: 80%;
-        display: inline-block;
-
     }
 
     &__month {
@@ -29,15 +23,29 @@
     &__previous {
         position: absolute;
         top: 8%;
-        left: 45%;
+        left: 35%;
         font-size: 4rem;
     }
 
     &__next {
         position: absolute;
         top: 8%;
-        left: 72%;
+        left: 62%;
         font-size: 4rem;
+    }
+
+    &__ul {
+        position: absolute;
+        top: 14%;
+        width: 100%;
+    }
+
+    &__li {
+        border: 1px solid black;
+
+        padding: 2rem;
+        display: inline-block;
+        width: 14.285714286%;
     }
 
     &__days {
@@ -45,25 +53,8 @@
 
         &__day {
             display: inline-block;
-            width: 13.5%;
+            width: 14.285714286%;
             text-align: center;
         }
     }
-
-    &__block {
-        cursor: pointer;
-        width: 13.5%;
-        display: inline-block;
-        padding: 3rem;
-        font-size: 4rem;
-        border: 1px solid $color-grey-dark;
-
-        &:hover {
-            background-color: $color-third;
-            transform: scale(1.05);
-            z-index: 1;
-            transition: .1s;
-        }
-    }
-
 }

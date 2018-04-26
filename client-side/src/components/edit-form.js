@@ -1,17 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
 import {Field, reduxForm, focus} from 'redux-form';
 import {updateTask, selectNote} from '../actions/tasks'
 import Input from './input-edit';
 // Notice this import of Input component;
 
 class EditForm extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-
 
     render() {
 

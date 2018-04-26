@@ -30,7 +30,6 @@ export default function reducer(state = initialState, action) {
         })
 
     } else if (action.type === CLEAR_AUTH) {
-        console.log('clear')
         return Object.assign({}, state, {
             authToken: null,
             userId: null

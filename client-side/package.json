@@ -8,18 +8,21 @@
   },
   "dependencies": {
     "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.10",
     "moment": "^2.22.1",
     "node-sass": "^4.8.3",
     "react": "^16.3.2",
     "react-click-outside": "^3.0.1",
     "react-dom": "^16.3.2",
+    "react-draggable": "^3.0.5",
     "react-form": "^3.5.3",
     "react-onclickoutside": "^6.7.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "redux-form": "^7.3.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "youtube-api-search": "0.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

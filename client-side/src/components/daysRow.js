@@ -1,6 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
 
 export default class DaysRow extends React.Component {
     constructor(props) {

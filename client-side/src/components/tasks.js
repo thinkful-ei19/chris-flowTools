@@ -1,16 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
-import {Link, Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import { unselectDate, selectNote, postNewTask, deleteTask, updateTask, unselectNote } from '../actions/tasks'
 import EditForm from './edit-form';
 import moment from 'moment';
-import onClickOutside from "react-onclickoutside";
 
 export class Tasks extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         const bindThis = this;
@@ -24,7 +20,7 @@ export class Tasks extends React.Component {
 
         const selectedDate = this.props.selectedDate;
         const currentTasks = this.props.notes.filter((note) => {
-            return note.duedate == selectedDate
+            return note.duedate === selectedDate
         }).sort((a, b) => {
             return a.id > b.id
         })
@@ -72,9 +68,7 @@ export class Tasks extends React.Component {
             }
         }
 
-        console.log(bindThis.props)
         if (!this.props.selectedDate) {
-            
             return <Redirect to='/calendar' />
         } else {
             const formattedDate = moment(this.props.selectedDate, 'YYYY.MM.DD').format('MMM DD, YYYY')

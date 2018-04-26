@@ -1,5 +1,4 @@
 import React from 'react';
-import onClickOutside from 'react-click-outside';
 
 export default class Input extends React.Component {
     componentDidUpdate(prevProps) {
@@ -8,22 +7,7 @@ export default class Input extends React.Component {
         }
     }
 
-    handleClickOutside() {
-        console.log('click')
-    }
-
     render() {
-        let error;
-        if (this.props.meta.touched && this.props.meta.error) {
-            error = <div className="form-error">{this.props.meta.error}</div>;
-        }
-
-        let warning;
-        if (this.props.meta.touched && this.props.meta.warning) {
-            warning = (
-                <div className="form-warning">{this.props.meta.warning}</div>
-            );
-        }
 
         return (
                 <input

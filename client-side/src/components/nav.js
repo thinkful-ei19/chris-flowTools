@@ -1,16 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
+import {unselectDate} from '../actions/tasks';
 
 export class Nav extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         const bindThis = this;
         function logout() {
+            bindThis.props.dispatch(unselectDate())
             bindThis.props.dispatch(clearAuth())
         }
 

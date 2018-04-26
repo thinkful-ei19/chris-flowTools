@@ -1,14 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import moment from 'moment';
 import {updateTask, deleteTask} from '../actions/tasks';
 import {getTasks} from '../actions/tasks';
 
 export class Notifications extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         const currentDate = moment().format();

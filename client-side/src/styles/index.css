@@ -152,6 +152,15 @@ button {
   text-align: center;
   height: 90vh;
   background-image: linear-gradient(to right, rgba(87, 188, 144, 0.2), rgba(1, 82, 73, 0.3)); }
+  .main__toggleWeekly {
+    cursor: pointer;
+    font-weight: bold;
+    color: #015249;
+    text-align: left;
+    font-size: 2rem;
+    left: 22.5%;
+    top: 8%;
+    position: absolute; }
   .main__right {
     width: 80%;
     display: inline-block; }
@@ -187,6 +196,49 @@ button {
       transform: scale(1.05);
       z-index: 1;
       transition: .1s; }
+
+.weekly {
+  text-align: center;
+  height: 90vh;
+  background-image: linear-gradient(to right, rgba(87, 188, 144, 0.2), rgba(1, 82, 73, 0.3)); }
+  .weekly__toggleMonthly {
+    cursor: pointer;
+    font-weight: bold;
+    color: #015249;
+    text-align: left;
+    font-size: 2rem;
+    left: 10%;
+    top: 8%;
+    position: absolute; }
+  .weekly__month {
+    text-align: center;
+    font-size: 4rem;
+    display: inline-block; }
+  .weekly__previous {
+    position: absolute;
+    top: 8%;
+    left: 35%;
+    font-size: 4rem; }
+  .weekly__next {
+    position: absolute;
+    top: 8%;
+    left: 62%;
+    font-size: 4rem; }
+  .weekly__ul {
+    position: absolute;
+    top: 14%;
+    width: 100%; }
+  .weekly__li {
+    border: 1px solid black;
+    padding: 2rem;
+    display: inline-block;
+    width: 14.285714286%; }
+  .weekly__days {
+    font-size: 2.5rem; }
+    .weekly__days__day {
+      display: inline-block;
+      width: 14.285714286%;
+      text-align: center; }
 
 .tasks {
   height: 90vh;
@@ -351,3 +403,67 @@ button {
       visibility: visible;
       -webkit-transform: scale(1);
       transform: scale(1); }
+
+.youtube {
+  max-width: 42.7rem;
+  position: fixed;
+  z-index: 20; }
+  .youtube__handle {
+    cursor: grab;
+    padding: .5rem 2rem;
+    border: 2px solid #A5A5AF;
+    background-color: #015249;
+    color: #fff; }
+    .youtube__handle:active {
+      cursor: grabbing; }
+  .youtube__header {
+    margin: 0rem; }
+  .youtube__minimize, .youtube__exit {
+    position: relative;
+    cursor: pointer;
+    float: right;
+    width: 2rem;
+    font-size: 2rem;
+    transform: translate(0, -100%); }
+  .youtube__minimize {
+    font-size: 2rem; }
+    .youtube__minimize__checkbox {
+      visibility: hidden; }
+      .youtube__minimize__checkbox:checked ~ .youtube__main {
+        visibility: hidden; }
+  .youtube__main {
+    padding: .5rem;
+    border: 1px solid #A5A5AF;
+    background-image: linear-gradient(to bottom right, rgba(87, 188, 144, 0.9), rgba(87, 188, 144, 0.9));
+    color: #000;
+    z-index: 9;
+    transform: translate(0, -5%); }
+  .youtube__current__video {
+    height: 22.7rem;
+    width: 40rem; }
+  .youtube__current__details {
+    font-size: 1.2rem; }
+  .youtube__search__input {
+    display: inline-block;
+    font-size: 2rem;
+    width: 60%; }
+  .youtube__search__button {
+    margin-left: .5rem;
+    display: inline-block; }
+  .youtube__ul {
+    border: 1px solid #015249;
+    overflow-y: scroll;
+    height: 26rem; }
+  .youtube__li {
+    border-bottom: 1px solid #015249;
+    padding: 1rem; }
+    .youtube__li__thumbnail {
+      width: 15rem;
+      height: 10rem;
+      display: inline-block; }
+    .youtube__li__details {
+      margin-left: 1.5rem;
+      width: 50%;
+      display: inline-block;
+      font-size: 1.4rem;
+      transform: translateY(-35%); }

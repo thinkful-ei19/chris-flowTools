@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login, signUp} from '../actions/auth'

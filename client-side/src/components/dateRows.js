@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import moment from 'moment';
-import {getTasks} from '../actions/tasks';
+import {getTasks, setWeek} from '../actions/tasks';
 
 export class DateRows extends React.Component {
     constructor(props) {
@@ -61,23 +61,26 @@ export class DateRows extends React.Component {
         const dispatchGetTasks = (value) => {
             this.props.dispatch(getTasks(value))
         }
-        
+        const bindThis = this;
         const htmlArray = dateArray.map(function(item) {
-            const handleClick = (value) => {
+            const handleClick = (value, data) => {
                 dispatchGetTasks(value.target.id)
+                bindThis.props.dispatch(setWeek(Math.ceil(data/7)))
             }
+
+        
 
             if (item.ref === 'previous') {
                 return (
-                    <span onClick={handleClick} key={item.value} id={item.value} className="main__block previous-month-day">{item.day}</span>
+                    <span onClick={(value) => handleClick(value, dateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block previous-month-day">{item.day}</span>
                 )
             } else if (item.ref === 'next') {
                 return (
-                    <span onClick={handleClick} key={item.value} id={item.value} className="main__block next-month-day">{item.day}</span>
+                    <span onClick={(value) => handleClick(value, dateArray.indexOf(item) + 1)}  key={item.value} id={item.value} className="main__block next-month-day">{item.day}</span>
                 )
             } else {
                 return (
-                    <span onClick={handleClick} key={item.value} id={item.value} className="main__block">{item.day}</span>
+                    <span onClick={(value) => handleClick(value, dateArray.indexOf(item) + 1)}  key={item.value} id={item.value} className="main__block">{item.day}</span>
                 )
             }
             
