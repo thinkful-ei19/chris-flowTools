@@ -47,7 +47,7 @@ class EditForm extends React.Component {
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.userId !== null,
-    userId: state.auth.userId
+    userId: state.auth.userId,
 })
 
 export default reduxForm({

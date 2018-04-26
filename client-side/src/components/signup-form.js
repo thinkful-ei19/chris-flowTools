@@ -3,35 +3,35 @@ import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
-import {login} from '../actions/auth'
+import {login, signUp} from '../actions/auth'
 import {Link, Redirect} from 'react-router-dom';
 
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
     constructor(props) {
         super(props)
     }
 
     onSubmit(values) {
-        return this.props.dispatch(login(values.username, values.password))
+        return this.props.dispatch(signUp(values.username, values.password))
     }
 
     render() {
 
         return (
-                <form className="login__form"
+                <form className="signup__form"
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
-                    <h4 className="login__header">Login</h4>
-                    <label className="login__label" htmlFor="username">Username</label>
-                    {/* <input className="login__input"></input> */}
+                <h4 className="signup__header">Signup Form</h4>
+                    <label className="signup__label" htmlFor="username">Username</label>
+                    {/* <input className="signup__input"></input> */}
                     <Field
                         component={Input}
                         type="text"
                         name="username"
                         id="username"
                     />
-                    <label className="login__label" htmlFor="password">Password</label>
-                    {/* <input className="login__input"></input> */}
+                    <label className="signup__label" htmlFor="password">Password</label>
+                    {/* <input className="signup__input"></input> */}
                     <Field
                         component={Input}
                         type="password"
@@ -39,12 +39,12 @@ class LoginForm extends React.Component {
                         id="password"
                     />
                     <button
-                        className="login__button"
+                        className="signup__button"
                         disabled={this.props.pristine || this.props.submitting}>
-                        Log in
+                        Sign up
                     </button>
-                    <a href="/signup"
-                    className="login__signup" >Sign up</a>
+                    <a href="/login"
+                    className="signup__login" >Return to Login</a>
                 </form>
         )
     }
@@ -57,4 +57,4 @@ const mapStateToProps = state => ({
 export default reduxForm({
     form: 'login',
     onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(connect(mapStateToProps)(LoginForm));
+})(connect(mapStateToProps)(SignupForm));

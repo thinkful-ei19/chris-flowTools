@@ -1,6 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import {API_BASE_URL} from '../config'
 import {normalizeResponseErrors} from './utils';
+import {Link, Redirect} from 'react-router-dom';
 
 export const SAVE_USER_ID = 'SAVE_USER_ID';
 export const saveUserId = (userId) => ({
@@ -41,6 +42,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 export const login = (username, password) => dispatch => {
     let authTokenSave;
     let userIdSave;
+    console.log('attempting login')
     return (
         //Grab authToken
         fetch(`${API_BASE_URL}/login`, {
@@ -83,29 +85,35 @@ export const login = (username, password) => dispatch => {
         .catch(err => {
             console.log(err);
         })
-    //     //Get the note IDs
-    //     .then(() => {
-    //         fetch(`${API_BASE_URL}/api/notes`, {
-    //             method: 'GET',
-    //             headers: {
-    //                 Authorization: `Bearer ${authTokenSave}`
-    //             }
-    //         })
-    //     .then((res) => res.json(res))
-    //     .then((res) => {
-    //         let notes = [];
-    //         res.forEach((note) => {
-            
-    //             if (note.user_id === userIdSave) {
-    //                 notes.push(note.id);
-    //             }
-    //         })
-    //         dispatch(saveNotes(notes))
-    //         }
-    //     )
-    //     .catch(err => {
-    //         console.log(err);
-    //     })
-    // })
+    )
+}
+
+export const signUp = (username, password) => {
+    console.log(JSON.stringify({
+        username,
+        password
+    }))
+    return (
+        //Grab authToken
+        fetch(`${API_BASE_URL}/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        })
+        .then((res) => res.json(res))
+        .then((res) => {
+            if (res.message) {
+                alert(res.message)
+            }
+            else if (res[0].id) {
+                alert('Account Created, proceed to the login screen to login.')
+            }
+        })
+        .catch((err) => alert(err))
     )
 }

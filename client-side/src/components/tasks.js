@@ -12,10 +12,6 @@ export class Tasks extends React.Component {
         super(props)
     }
 
-    onClickOutside = evt => {
-        this.props.dispatch((unselectNote()))
-    }
-
     render() {
         const bindThis = this;
         function exit() {
@@ -47,7 +43,6 @@ export class Tasks extends React.Component {
             }
             bindThis.props.dispatch(updateTask(check.target.value, bindThis.props.userId, content))
         }
-        //bindThis.props.notes ~ note[0].checked
 
         const buildJSX = currentTasks.map((note) => {
             const inputId = 'task__' + (note.id)
@@ -62,19 +57,29 @@ export class Tasks extends React.Component {
                 return (
                     <li key={note.id} id={note.id} className="tasks__ul__li">
                     <input onChange={checkIt} defaultChecked={note.checked} value={note.id} id={inputId} className="tasks__ul__li__input" type="checkbox" />
-                    <label htmlFor={inputId} className="tasks__ul__li__label"><span class="tasks__ul__li__label__check">&#10003;</span></label>
+                    <label htmlFor={inputId} className="tasks__ul__li__label"><span className="tasks__ul__li__label__check">&#10003;</span></label>
                     <p id={note.id} onClick={dispatchSelect} className="tasks__ul__li__text">{note.content}</p>
                     </li>
                 )
             }
         })
 
+        function unselect() {
+            if (bindThis.props.selectedNote) {
+                setTimeout(function() {
+                    bindThis.props.dispatch(unselectNote())
+                }, 1)
+            }
+        }
+
+        console.log(bindThis.props)
         if (!this.props.selectedDate) {
+            
             return <Redirect to='/calendar' />
         } else {
             const formattedDate = moment(this.props.selectedDate, 'YYYY.MM.DD').format('MMM DD, YYYY')
             return (
-                <div className="tasks">
+                <div onClick={unselect} className="tasks">
                     <h4 className="tasks__day">{formattedDate}</h4>
                     <a className="tasks__exit" onClick={exit}>&#215;</a>
                     <ul className="tasks__ul">

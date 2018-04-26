@@ -42,15 +42,64 @@ button {
 
 .login {
   padding: 2rem;
-  font-size: 2rem; }
+  font-size: 4rem;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to right, rgba(87, 188, 144, 0.3), rgba(1, 82, 73, 0.3)); }
+  .login__form {
+    padding: 5rem;
+    border: 1px solid black;
+    display: inline-block; }
   .login__label {
     display: block; }
   .login__input {
     display: block;
-    font-size: 2rem; }
+    font-size: 3rem; }
   .login__button {
+    font-size: 2rem;
     margin: 1rem 0 0 0;
     padding: .5rem 1rem; }
+  .login__signup {
+    cursor: pointer;
+    position: relative;
+    color: #015249;
+    font-size: 2.5rem;
+    margin-left: 5rem;
+    padding: .5rem 1rem; }
+    .login__signup:hover {
+      color: #A5A5AF; }
+
+.signup {
+  padding: 2rem;
+  font-size: 4rem;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to right, rgba(87, 188, 144, 0.3), rgba(1, 82, 73, 0.3)); }
+  .signup__form {
+    padding: 5rem;
+    border: 1px solid black;
+    display: inline-block; }
+  .signup__label {
+    display: block; }
+  .signup__input {
+    display: block;
+    font-size: 3rem; }
+  .signup__button {
+    font-size: 2rem;
+    margin: 1rem 0 0 0;
+    padding: .5rem 1rem; }
+  .signup__login {
+    cursor: pointer;
+    color: #015249;
+    font-size: 2.5rem;
+    margin-left: 5rem;
+    padding: .5rem 1rem; }
+    .signup__login:hover {
+      color: #A5A5AF; }
 
 .nav {
   width: 100%;
@@ -157,7 +206,7 @@ button {
     .tasks__exit:hover {
       background-color: #015249; }
   .tasks__ul__li {
-    padding: 1rem;
+    padding: 2rem;
     font-size: 2.5rem; }
     .tasks__ul__li__input {
       cursor: pointer;
@@ -184,7 +233,6 @@ button {
         color: #015249; }
     .tasks__ul__li__text {
       display: inline-block;
-      margin-top: 1rem;
       margin-left: 9rem; }
     .tasks__ul__li__edit {
       display: inline-block;

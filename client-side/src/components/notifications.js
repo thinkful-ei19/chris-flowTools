@@ -16,9 +16,9 @@ export class Notifications extends React.Component {
         const dueTasks = this.props.notes.filter((note) => {
             const noteValue = new Date(note.duedate).getTime();
             const currentDateValue = new Date(currentDate).getTime();
-            return noteValue <= currentDateValue && note.checked === false;
+            return noteValue < currentDateValue && note.checked === false;
         }).sort((a, b) => {
-            return a.id > b.id
+            return a.duedate.slice(8, 10) > b.duedate.slice(8, 10)
         })
 
         const bindThis = this;
@@ -26,7 +26,6 @@ export class Notifications extends React.Component {
             const content = {
                 checked: check.target.checked
             }
-
             bindThis.props.dispatch(updateTask(check.target.value, bindThis.props.userId, content))
         }
         function deleteThis(note) {

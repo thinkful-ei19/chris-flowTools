@@ -18,9 +18,9 @@ export class Nav extends React.Component {
             <nav className="nav">
                 <h1 className="nav__h1">Flow Tools</h1>
                 <ul className="nav__ul">
-                    <li className="nav__ul__li"><a href="#" className="nav__ul__li__button">Widgets</a></li>
-                    <li className="nav__ul__li"><a href="#" className="nav__ul__li__button">Settings</a></li>
-                    <li className="nav__ul__li"><a href="#" onClick={logout} className="nav__ul__li__button">Logout</a></li>
+                    <li className="nav__ul__li"><a className="nav__ul__li__button">Widgets</a></li>
+                    <li className="nav__ul__li"><a className="nav__ul__li__button">Settings</a></li>
+                    <li className="nav__ul__li"><a onClick={logout} className="nav__ul__li__button">Logout</a></li>
                 </ul>
             </nav>
         )

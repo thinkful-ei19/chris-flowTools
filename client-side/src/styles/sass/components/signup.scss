@@ -1,4 +1,4 @@
-.login {
+.signup {
     padding: 2rem;
     font-size: 4rem;
     position: absolute;
@@ -26,9 +26,8 @@
         padding: .5rem 1rem;
     }
 
-    &__signup {
+    &__login {
         cursor: pointer;
-        position: relative;
         color: $color-secondary;
         font-size: 2.5rem;
         margin-left: 5rem;
