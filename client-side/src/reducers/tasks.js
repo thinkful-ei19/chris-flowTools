@@ -89,7 +89,7 @@ export default function reducer(state = initialState, action) {
             } else if (state.selectedWeek === 1) {
                 return Object.assign({}, state, {
                     selectedWeek: 5,
-                    selectedMonth: String(Number(state.selectedMonth) - 1)
+                    selectedMonth: String('0' +(Number(state.selectedMonth) - 1))
                 })
             } else {
                 return Object.assign({}, state, {
@@ -107,7 +107,7 @@ export default function reducer(state = initialState, action) {
             } else if (state.selectedWeek === 5) {
                 return Object.assign({}, state, {
                     selectedWeek: 1,
-                    selectedMonth: String(Number(state.selectedMonth) + 1)
+                    selectedMonth: String('0' +(Number(state.selectedMonth) + 1))
                 })
             } else {
                 return Object.assign({}, state, {

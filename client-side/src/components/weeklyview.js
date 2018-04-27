@@ -5,7 +5,8 @@ import {fetchProtectedData} from '../actions/users';
 import {login} from './login';
 import requiresLogin from './requires-login';
 import {Redirect} from 'react-router-dom';
-import {selectMonth, selectYear, selectWeek} from '../actions/tasks'
+import EditForm from './edit-form-weekly';
+import {getTasks, selectMonth, selectYear, selectWeek, unselectDate, selectNote, postNewTask, deleteTask, updateTask, unselectNote} from '../actions/tasks'
 
 import DaysRow from './daysRow-Weekly';
 
@@ -24,6 +25,14 @@ export class WeeklyView extends React.Component {
             bindThis.setState({redirect: true})
         }
 
+        if (this.props.selectedDate) {
+            return <Redirect to='/tasks' />
+        } 
+
+        function dispatchSelect(note) {
+            bindThis.props.dispatch(selectNote(note.target.id))
+        }
+        
         if (this.state.redirect === true ) {
             return <Redirect to='/calendar' />
         }
@@ -90,7 +99,6 @@ export class WeeklyView extends React.Component {
         const weekFive = dateArray.slice(28, 35)
 
         if (!this.props.selectedWeek) {
-            console.log(currentDayValue)
             if (currentDayValue <= 7) {
                 bindThis.props.dispatch(selectWeek(1))
             } else if (currentDayValue <= 14) {
@@ -112,8 +120,6 @@ export class WeeklyView extends React.Component {
             bindThis.props.dispatch(selectWeek('decrement'))
         }
 
-        console.log(this)
-
         let renderSelectedWeek;
         if (this.props.selectedWeek === 1) {
             renderSelectedWeek = weekOne
@@ -127,14 +133,62 @@ export class WeeklyView extends React.Component {
             renderSelectedWeek = weekFive
         } 
 
-        console.log(this.props.selectedWeek)
-        console.log(renderSelectedWeek)
+        function createNewTask(date) {
+            bindThis.props.dispatch(postNewTask(date.target.id, bindThis.props.userId))
+        }
+
+        function deleteThis(note) {
+            bindThis.props.dispatch(deleteTask(note.target.id, bindThis.props.userId))
+        }
+
+        function checkIt(check) {
+            const content = {
+                checked: check.target.checked
+            }
+            bindThis.props.dispatch(updateTask(check.target.value, bindThis.props.userId, content))
+        }
 
         let buildJSX = [];
         renderSelectedWeek.forEach((day) => {
+            let noteArray = [];
+            this.props.notes.forEach((note) => {
+                const inputId = 'task__' + (note.id)
+                if (note.duedate === day.value) {
+                    if (note.id === Number(bindThis.props.selectedNote)) {
+                        noteArray.push(
+                            <li key={note.id} id={note.id} className="weekly__tasks__ul__li">
+                            <EditForm noteId={note.id} placeholder={note.content}/>
+                            <button id={note.id} onClick={deleteThis} className="weekly__tasks__ul__li__delete-button">Delete</button>
+                            </li>
+                        )
+                    } else {
+                        noteArray.push(
+                            <li key={note.id} id={note.id} className="weekly__tasks__ul__li">
+                            <input onChange={checkIt} defaultChecked={note.checked} value={note.id} id={inputId} className="weekly__tasks__ul__li__input" type="checkbox" />
+                            <label htmlFor={inputId} className="weekly__tasks__ul__li__label"><span className="weekly__tasks__ul__li__label__check">&#10003;</span></label>
+                            <p id={note.id} onClick={dispatchSelect} className="weekly__tasks__ul__li__text">{note.content}</p>
+                            </li>
+                        )
+                    }
+                }
+            })
+
+            const dispatchGetTasks = (value) => {
+                this.props.dispatch(getTasks(value))
+            }
+            const handleClick = (value) => {
+                dispatchGetTasks(value.target.id)
+            }
+            const sortedNoteArray = noteArray.sort((a, b) => {
+                return a.props.id > b.props.id
+            })
             buildJSX.push(
                 <li key={day.value} className="weekly__li">
-                    {day.value}
+                    <p onClick={handleClick} id={day.value} className="weekly__date">{moment(day.value).format('MMM DD, YYYY')}</p>
+                    <button id={day.value} onClick={createNewTask} className="weekly__tasks__button">New Task</button>
+                    <ul className="weekly__tasks__ul">
+                        {sortedNoteArray}
+                    </ul>
                 </li>
             )
         })
@@ -162,6 +216,7 @@ const mapStateToProps = state => {
         selectedMonth: state.tasks.selectedMonth,
         selectedYear: state.tasks.selectedYear,
         selectedWeek: state.tasks.selectedWeek,
+        selectedNote: state.tasks.selectedNote,
         notes: state.tasks.notes
     })
 }

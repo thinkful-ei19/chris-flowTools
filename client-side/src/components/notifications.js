@@ -26,7 +26,6 @@ export class Notifications extends React.Component {
             bindThis.props.dispatch(updateTask(check.target.value, bindThis.props.userId, content))
         }
         function deleteThis(note) {
-            console.log(note.target.id)
             bindThis.props.dispatch(deleteTask(note.target.id, bindThis.props.userId))
         }
 

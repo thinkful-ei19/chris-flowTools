@@ -32,3 +32,23 @@
     opacity: .8;
     background-image: linear-gradient(to right, rgba(green, .35));
 }
+
+.current-day-tasks {
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba(yellow, .35));
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.current-day-done {
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba(skyblue, 1));
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.current-day {
+    opacity: .8;
+    font-weight: bold;
+    text-decoration: underline;
+}

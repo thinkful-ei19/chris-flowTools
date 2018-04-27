@@ -31,6 +31,23 @@
   opacity: .8;
   background-image: linear-gradient(to right, rgba(0, 128, 0, 0.35)); }
 
+.current-day-tasks {
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(255, 255, 0, 0.35));
+  font-weight: bold;
+  text-decoration: underline; }
+
+.current-day-done {
+  opacity: .8;
+  background-image: linear-gradient(to right, skyblue);
+  font-weight: bold;
+  text-decoration: underline; }
+
+.current-day {
+  opacity: .8;
+  font-weight: bold;
+  text-decoration: underline; }
+
 * {
   padding: 0;
   margin: 0;
@@ -242,15 +259,51 @@ button {
     width: 100%; }
   .weekly__li {
     border: 1px solid black;
+    vertical-align: top;
+    height: 77.5vh;
     padding: 2rem;
     display: inline-block;
     width: 14.285714286%; }
+  .weekly__date {
+    font-size: 2rem;
+    cursor: pointer; }
   .weekly__days {
     font-size: 2.5rem; }
     .weekly__days__day {
       display: inline-block;
       width: 14.285714286%;
       text-align: center; }
+  .weekly__tasks__ul__li {
+    margin: .5rem 0;
+    list-style: none;
+    padding: 1rem;
+    background-image: linear-gradient(to right, rgba(119, 201, 212, 0.5), rgba(119, 201, 212, 0.5));
+    border: 1px solid #A5A5AF; }
+    .weekly__tasks__ul__li:hover {
+      background-image: linear-gradient(to right, rgba(119, 201, 212, 0.8), rgba(119, 201, 212, 0.8)); }
+    .weekly__tasks__ul__li__label__check {
+      visibility: hidden; }
+    .weekly__tasks__ul__li__input {
+      width: 2rem;
+      height: 2rem; }
+    .weekly__tasks__ul__li__text {
+      cursor: pointer;
+      display: inline-block; }
+    .weekly__tasks__ul__li__edit {
+      width: 100%;
+      font-size: 2rem;
+      display: inline-block; }
+      .weekly__tasks__ul__li__edit__button {
+        padding: .5rem .25rem;
+        display: inline-block;
+        transform: translate(-60%, 50%); }
+    .weekly__tasks__ul__li__delete-button {
+      padding: .5rem .25rem;
+      display: inline-block;
+      transform: translate(50%, -50%); }
+  .weekly__tasks__button {
+    padding: .5rem 1rem;
+    vertical-align: bottom; }
 
 .tasks {
   height: 90vh;

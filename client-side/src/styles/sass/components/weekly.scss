@@ -42,10 +42,16 @@
 
     &__li {
         border: 1px solid black;
-
+        vertical-align: top;
+        height: 77.5vh;
         padding: 2rem;
         display: inline-block;
         width: 14.285714286%;
+    }
+
+    &__date {
+        font-size: 2rem;
+        cursor: pointer;
     }
 
     &__days {
@@ -55,6 +61,64 @@
             display: inline-block;
             width: 14.285714286%;
             text-align: center;
+        }
+    }
+
+    &__tasks {
+
+        &__ul{
+
+            &__li {
+                margin: .5rem 0;
+                list-style: none;
+                padding: 1rem;
+                background-image: linear-gradient(to right, rgba($color-third, .5), rgba($color-third, .5));
+                border: 1px solid $color-fourth;
+
+                &:hover {
+                    background-image: linear-gradient(to right, rgba($color-third, .8), rgba($color-third, .8));
+                }
+
+                &__label {
+
+                    &__check {
+                        visibility: hidden;
+                    }
+                }
+
+                &__input {
+                    width: 2rem;
+                    height: 2rem;
+                }
+
+                &__text {
+                    cursor: pointer;
+                    display: inline-block;
+                }
+
+                &__edit {
+                    width: 100%;
+                    font-size: 2rem;
+                    display: inline-block;
+
+                    &__button {
+                        padding: .5rem .25rem;
+                        display: inline-block;
+                        transform: translate(-60%, 50%)
+                    }
+                }
+
+                &__delete-button {
+                    padding: .5rem .25rem;
+                    display: inline-block;
+                    transform: translate(50%,-50%)
+                }
+            }
+        }
+
+        &__button {
+            padding: .5rem 1rem;
+            vertical-align: bottom;
         }
     }
 }

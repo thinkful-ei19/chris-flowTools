@@ -78,7 +78,6 @@ export class DateRows extends React.Component {
                 notes: dateNotes
             }
         })
-        console.log(finalDateArray)
 
         const htmlArray = finalDateArray.map(function(item) {
             const handleClick = (value, data) => {
@@ -139,20 +138,33 @@ export class DateRows extends React.Component {
                         }
                     })
                     if (check === true) {
-                        if (Number(item.value.slice(8, 10)) < Number(moment().format('DD')) ) {
+                        if (Number(item.value.slice(8, 10)) === Number(moment().format('DD'))) {
                             return (
-                                <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block overdue-tasks next-month-day">{item.day}</span>
+                                <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block current-day-tasks">{item.day}</span>
+                            )
+                        }
+                        else if (Number(item.value.slice(8, 10)) < Number(moment().format('DD'))) {
+                            return (
+                                <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block overdue-tasks">{item.day}</span>
                             )
                         } else {
                             return (
-                                <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block due-tasks next-month-day">{item.day}</span>
+                                <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block due-tasks">{item.day}</span>
                             )
                         }
-                    } else {
+                    }   else if (Number(item.value.slice(8, 10)) === Number(moment().format('DD'))) {
+                        return (
+                            <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block current-day-done">{item.day}</span>
+                        )
+                    }   else {
                         return (
                             <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block finished-tasks">{item.day}</span>
                         )
                     }
+                } else if (Number(item.value.slice(8, 10)) === Number(moment().format('DD'))) {
+                    return (
+                        <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block current-day">{item.day}</span>
+                    )
                 } else {
                     return (
                         <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block">{item.day}</span>
