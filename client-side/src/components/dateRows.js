@@ -61,27 +61,103 @@ export class DateRows extends React.Component {
         const dispatchGetTasks = (value) => {
             this.props.dispatch(getTasks(value))
         }
+
         const bindThis = this;
-        const htmlArray = dateArray.map(function(item) {
+
+        let finalDateArray = dateArray.map((date) => {
+            let dateNotes = [];
+            bindThis.props.notes.forEach((note) => {
+                if (date.value === note.duedate) {
+                    dateNotes.push(note);
+                }
+            })
+            return {
+                value: date.value,
+                day: date.day,
+                ref: date.ref,
+                notes: dateNotes
+            }
+        })
+        console.log(finalDateArray)
+
+        const htmlArray = finalDateArray.map(function(item) {
             const handleClick = (value, data) => {
                 dispatchGetTasks(value.target.id)
                 bindThis.props.dispatch(setWeek(Math.ceil(data/7)))
             }
-
-        
-
             if (item.ref === 'previous') {
-                return (
-                    <span onClick={(value) => handleClick(value, dateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block previous-month-day">{item.day}</span>
-                )
+                if (item.notes.length > 0) {
+                    let check = false;
+                    item.notes.forEach((note) => {
+                        if (note.checked === false) {
+                            check = true
+                        }
+                    })
+                    if (check === true) {
+                        return (
+                            <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block previous-month-day overdue-tasks">{item.day}</span>
+                        )
+                    } else {
+                        return (
+                            <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block previous-month-day finished-tasks">{item.day}</span>
+                        )
+                    }
+                } else {
+                    return (
+                        <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block previous-month-day">{item.day}</span>
+                    )
+                }
+                
             } else if (item.ref === 'next') {
-                return (
-                    <span onClick={(value) => handleClick(value, dateArray.indexOf(item) + 1)}  key={item.value} id={item.value} className="main__block next-month-day">{item.day}</span>
-                )
+                if (item.notes.length > 0) {
+                    let check = false;
+                    item.notes.forEach((note) => {
+                        if (note.checked === false) {
+                            check = true
+                        }
+                    })
+                    if (check === true) {
+                        return (
+                            <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block due-tasks next-month-day">{item.day}</span>
+                        )
+                    } else {
+                        return (
+                            <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block finished-tasks next-month-day">{item.day}</span>
+                        )
+                    }
+                } else {
+                    return (
+                        <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block next-month-day">{item.day}</span>
+                    )
+                }
             } else {
-                return (
-                    <span onClick={(value) => handleClick(value, dateArray.indexOf(item) + 1)}  key={item.value} id={item.value} className="main__block">{item.day}</span>
-                )
+                if (item.notes.length > 0) {
+                    let check = false;
+                    item.notes.forEach((note) => {
+                        if (note.checked === false) {
+                            check = true
+                        }
+                    })
+                    if (check === true) {
+                        if (Number(item.value.slice(8, 10)) < Number(moment().format('DD')) ) {
+                            return (
+                                <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block overdue-tasks next-month-day">{item.day}</span>
+                            )
+                        } else {
+                            return (
+                                <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block due-tasks next-month-day">{item.day}</span>
+                            )
+                        }
+                    } else {
+                        return (
+                            <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block finished-tasks">{item.day}</span>
+                        )
+                    }
+                } else {
+                    return (
+                        <span onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)} key={item.value} id={item.value} className="main__block">{item.day}</span>
+                    )
+                }
             }
             
         })
@@ -95,7 +171,8 @@ export class DateRows extends React.Component {
 
 const mapStateToProps = state => ({
     noteId: state.tasks.noteId,
-    selectedMonth: state.tasks.selectedMonth
+    selectedMonth: state.tasks.selectedMonth,
+    notes: state.tasks.notes
 })
 
 export default withRouter(connect(mapStateToProps)(DateRows))

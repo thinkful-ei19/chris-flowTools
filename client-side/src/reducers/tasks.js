@@ -80,8 +80,6 @@ export default function reducer(state = initialState, action) {
         })
     }   else if (action.type === SELECT_WEEK) {
         if (action.action === 'decrement') {
-            console.log('decrement')
-            console.log(state.selectedWeek, state.selectedMonth);
             if (state.selectedWeek === 1 && String(state.selectedMonth) === '01') {
                 return Object.assign({}, state, {
                     selectedWeek: 5,
@@ -100,7 +98,6 @@ export default function reducer(state = initialState, action) {
             }
 
         } else if (action.action === 'increment') {
-            console.log('increment')
             if (state.selectedWeek === 5 && state.selectedMonth === '12') {
                 return Object.assign({}, state, {
                     selectedWeek: 1,
@@ -119,7 +116,7 @@ export default function reducer(state = initialState, action) {
             }
         }
     } else if (action.type === SET_WEEK) {
-        console.log('setweek: ' + action.week)
+        console.log(action.week)
         return Object.assign({}, state, {
             selectedWeek: action.week
         })

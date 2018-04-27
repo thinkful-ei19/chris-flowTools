@@ -19,6 +19,18 @@
     backface-visibility: hidden;
     background-color: red; }
 
+.overdue-tasks {
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0.35)); }
+
+.due-tasks {
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(0, 0, 255, 0.35)); }
+
+.finished-tasks {
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(0, 128, 0, 0.35)); }
+
 * {
   padding: 0;
   margin: 0;

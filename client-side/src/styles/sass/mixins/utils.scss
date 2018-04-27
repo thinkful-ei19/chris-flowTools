@@ -17,3 +17,18 @@
         background-color: red;
     }
 }
+
+.overdue-tasks {
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba(red, .35));
+}
+
+.due-tasks {
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba(blue, .35));
+}
+
+.finished-tasks {
+    opacity: .8;
+    background-image: linear-gradient(to right, rgba(green, .35));
+}
