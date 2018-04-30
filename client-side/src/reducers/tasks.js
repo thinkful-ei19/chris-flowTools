@@ -121,8 +121,6 @@ export default function reducer(state = initialState, action) {
             selectedWeek: action.week
         })
     }
-
-    console.log(state)
-
+    
     return state;
 }

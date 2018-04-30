@@ -1,9 +1,4 @@
-.previous-month-day {
-    opacity: .8;
-    background-image: linear-gradient(to right, rgba($color-grey-dark, .35));
-}
-
-.next-month-day {
+.other-month-day {
     opacity: .8;
     background-image: linear-gradient(to right, rgba($color-grey-dark, .35));
 }
@@ -38,17 +33,20 @@
     background-image: linear-gradient(to right, rgba(yellow, .35));
     font-weight: bold;
     text-decoration: underline;
+    color: $color-black;
 }
 
-.current-day-done {
+.current-day-finished {
     opacity: .8;
     background-image: linear-gradient(to right, rgba(skyblue, 1));
     font-weight: bold;
     text-decoration: underline;
+    color: $color-black;
 }
 
 .current-day {
     opacity: .8;
     font-weight: bold;
     text-decoration: underline;
+    color: $color-black;
 }

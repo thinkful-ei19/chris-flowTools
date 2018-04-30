@@ -37,6 +37,13 @@ export class WeeklyView extends React.Component {
             return <Redirect to='/calendar' />
         }
 
+        function unselect() {
+            if (bindThis.props.selectedNote) {
+                setTimeout(function() {
+                    bindThis.props.dispatch(unselectNote())
+                }, 1)
+            }
+        }
 
         const currentYear = String(this.props.selectedYear);
         const currentMonth = String(this.props.selectedMonth)
@@ -194,7 +201,7 @@ export class WeeklyView extends React.Component {
         })
 
         return (
-            <div className="weekly">
+            <div onClick={unselect} className="weekly">
                 <a className="weekly__toggleMonthly" onClick={redirectToMonthly}>Return to Monthly View</a>
                 <button onClick={decrementWeek} className="weekly__previous">&#8592;</button>
                         <h2 className="weekly__month">{monthYear}</h2>

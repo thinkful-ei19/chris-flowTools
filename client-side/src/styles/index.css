@@ -4,11 +4,7 @@
   100% {
     transform: translateY(0%); } }
 
-.previous-month-day {
-  opacity: .8;
-  background-image: linear-gradient(to right, rgba(119, 119, 119, 0.35)); }
-
-.next-month-day {
+.other-month-day {
   opacity: .8;
   background-image: linear-gradient(to right, rgba(119, 119, 119, 0.35)); }
 
@@ -35,18 +31,21 @@
   opacity: .8;
   background-image: linear-gradient(to right, rgba(255, 255, 0, 0.35));
   font-weight: bold;
-  text-decoration: underline; }
+  text-decoration: underline;
+  color: #000; }
 
-.current-day-done {
+.current-day-finished {
   opacity: .8;
   background-image: linear-gradient(to right, skyblue);
   font-weight: bold;
-  text-decoration: underline; }
+  text-decoration: underline;
+  color: #000; }
 
 .current-day {
   opacity: .8;
   font-weight: bold;
-  text-decoration: underline; }
+  text-decoration: underline;
+  color: #000; }
 
 * {
   padding: 0;
