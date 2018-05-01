@@ -25,6 +25,8 @@
         top: 8%;
         left: 35%;
         font-size: 4rem;
+        background-color: $color-fourth;
+        border-radius: 35%;
     }
 
     &__next {
@@ -32,6 +34,8 @@
         top: 8%;
         left: 62%;
         font-size: 4rem;
+        background-color: $color-fourth;
+        border-radius: 35%;
     }
 
     &__ul {
@@ -104,7 +108,7 @@
                     &__button {
                         padding: .5rem .25rem;
                         display: inline-block;
-                        transform: translate(-60%, 50%)
+                        transform: translate(-60%, 50%);
                     }
                 }
 

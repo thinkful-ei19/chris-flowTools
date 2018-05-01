@@ -5,7 +5,7 @@
     width: 100%;
     padding: 2rem;
     height: 6.25vh;
-    background-color: $color-primary;
+    background-image: linear-gradient(to bottom right, rgba($color-primary, 1) .2, rgba($color-secondary, 1));
 
     @include respond(tab-land) {
         visibility: hidden;

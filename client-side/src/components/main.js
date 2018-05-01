@@ -7,7 +7,7 @@ import {fetchProtectedData} from '../actions/users';
 import {login} from './login';
 import requiresLogin from './requires-login';
 import {Link, Redirect} from 'react-router-dom';
-import {selectMonth, selectYear} from '../actions/tasks'
+import {changeTab, selectMonth, selectYear} from '../actions/tasks'
 
 import DaysRow from './daysRow';
 import DateRows from './dateRows';
@@ -22,11 +22,11 @@ export class Main extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
         this.props.dispatch(fetchProtectedData(this.props.userId));
     }
 
     render() {
+        console.log(this.props.currentTab)
         let currentMonth = this.props.selectedMonth;
         let currentYear = this.props.selectedYear;
         const bindThis = this;
@@ -59,10 +59,15 @@ export class Main extends React.Component {
         function redirectToWeekly() {
             bindThis.setState({redirect: true})            
         }
-
-        if (this.props.selectedDate) {
+        
+        if (this.props.currentTab === 'settings') {
+            return <Redirect to='/settings' />
+        } else if (this.props.currentTab === 'tasks') {
             return <Redirect to='/tasks' />
-        } else if (this.state.redirect === true) {
+        }
+
+        if (this.state.redirect === true) {
+            bindThis.props.dispatch(changeTab('weekly'))
             return <Redirect to='/weekly' />
         }
         else {
@@ -91,7 +96,8 @@ const mapStateToProps = state => {
         userId: state.auth.userId,
         selectedDate: state.tasks.selectedDate,
         selectedMonth: state.tasks.selectedMonth,
-        selectedYear: state.tasks.selectedYear
+        selectedYear: state.tasks.selectedYear,
+        currentTab: state.tasks.currentTab
     })
 }
 

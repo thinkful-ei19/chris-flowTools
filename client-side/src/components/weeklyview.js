@@ -20,6 +20,13 @@ export class WeeklyView extends React.Component {
     }
 
     render() {
+
+        if (this.props.currentTab === 'settings') {
+            return <Redirect to='/settings' />
+        } else if (this.props.currentTab === 'calendar') {
+            return <Redirect to='/calendar' />
+        }
+
         const bindThis = this;
         function redirectToMonthly() {
             bindThis.setState({redirect: true})
@@ -224,7 +231,8 @@ const mapStateToProps = state => {
         selectedYear: state.tasks.selectedYear,
         selectedWeek: state.tasks.selectedWeek,
         selectedNote: state.tasks.selectedNote,
-        notes: state.tasks.notes
+        notes: state.tasks.notes,
+        currentTab: state.tasks.currentTab
     })
 }
 

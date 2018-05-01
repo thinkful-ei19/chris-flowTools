@@ -2,15 +2,22 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
-import { unselectDate, selectNote, postNewTask, deleteTask, updateTask, unselectNote } from '../actions/tasks'
+import {changeTab, unselectDate, selectNote, postNewTask, deleteTask, updateTask, unselectNote } from '../actions/tasks'
 import EditForm from './edit-form';
 import moment from 'moment';
 
 export class Tasks extends React.Component {
 
     render() {
+        if (this.props.currentTab === 'settings') {
+            return <Redirect to='/settings' />
+        } else if (this.props.currentTab === 'calendar') {
+            return <Redirect to='/calendar' />
+        }
+
         const bindThis = this;
         function exit() {
+            bindThis.props.dispatch(changeTab('calendar'))
             bindThis.props.dispatch(unselectDate())
         }
 
@@ -68,8 +75,8 @@ export class Tasks extends React.Component {
             }
         }
 
-        if (!this.props.selectedDate) {
-            return <Redirect to='/calendar' />
+        if (!this.props.userId) {
+            return <Redirect to='/login' />
         } else {
             const formattedDate = moment(this.props.selectedDate, 'YYYY.MM.DD').format('MMM DD, YYYY')
             return (
@@ -91,7 +98,8 @@ const mapStateToProps = state => ({
     userId: state.auth.userId,
     notes: state.tasks.notes,
     selectedDate: state.tasks.selectedDate,
-    selectedNote: state.tasks.selectedNote
+    selectedNote: state.tasks.selectedNote,
+    currentTab: state.tasks.currentTab
 })
 
 export default withRouter(connect(mapStateToProps)(Tasks))

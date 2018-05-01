@@ -1,6 +1,6 @@
 .main {
     text-align: center;
-    height: 100vh;
+    height: 90vh;
     background-image: linear-gradient(to right, rgba($color-primary, 0.2), rgba($color-secondary, 0.3));
     
 
@@ -50,6 +50,8 @@
         top: 7%;
         left: 45%;
         font-size: 4rem;
+        background-color: $color-fourth;
+        border-radius: 35%;
 
         @include respond(tab-port) {
             top: 13.5rem;
@@ -75,6 +77,8 @@
         top: 7%;
         left: 72%;
         font-size: 4rem;
+        background-color: $color-fourth;
+        border-radius: 35%;
         
         @include respond(tab-port) {
             top: 13.5rem;
@@ -106,6 +110,10 @@
         @include respond(phone) {
             width: 100vw;
             transform: translateX(-10%);
+        }
+
+        @media (orientation: landscape) and (max-width: 570px) {
+            transform: translateX(-5%);
         }
 
         &__days {

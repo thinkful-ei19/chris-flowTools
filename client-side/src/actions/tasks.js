@@ -58,6 +58,12 @@ export const setWeek = (week) => ({
     week
 })
 
+export const CHANGE_TAB = 'CHANGE_TAB';
+export const changeTab = (tab) => ({
+    type: CHANGE_TAB,
+    tab
+})
+
 export const postNewTask = (date, userId) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     const postNote = {

@@ -1,4 +1,4 @@
-import { GET_TASKS, UNSELECT_DATE, SELECT_NOTE, SELECT_MONTH, SELECT_YEAR, UNSELECT_NOTE, SELECT_WEEK, SET_WEEK } from "../actions/tasks";
+import { GET_TASKS, UNSELECT_DATE, SELECT_NOTE, SELECT_MONTH, SELECT_YEAR, UNSELECT_NOTE, SELECT_WEEK, SET_WEEK, CHANGE_TAB } from "../actions/tasks";
 import { FETCH_PROTECTED_DATA_SUCCESS, FETCH_PROTECTED_DATA_ERROR } from '../actions/users';
 import moment from 'moment';
 
@@ -30,6 +30,7 @@ if (currentDayValue <= 7) {
 }
 
 const initialState = {
+    currentTab: 'calendar',
     selectedDate: null,
     notes: [],
     selectedNote: null,
@@ -116,11 +117,16 @@ export default function reducer(state = initialState, action) {
             }
         }
     } else if (action.type === SET_WEEK) {
-        console.log(action.week)
         return Object.assign({}, state, {
             selectedWeek: action.week
         })
+    } else if (action.type === CHANGE_TAB) {
+        return Object.assign({}, state, {
+            currentTab: action.tab
+        })
     }
     
+    console.log(state.currentTab)
+
     return state;
 }

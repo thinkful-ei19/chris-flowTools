@@ -80,25 +80,68 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
-  overflow-y: hidden; }
+  color: #777; }
 
 button {
   cursor: pointer;
   color: #000; }
 
+.landing-page {
+  overflow-x: hidden; }
+  @media (max-width: 85.375em) {
+    .landing-page {
+      padding: 0; } }
+  .landing-page__div-first {
+    width: 100%;
+    height: 50vh; }
+  .landing-page__image {
+    position: absolute;
+    width: 100%;
+    height: 92vh;
+    background-image: url(https://images.pexels.com/photos/4159/coffee-cup-mug-apple.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: cover;
+    z-index: -1;
+    transform: translate(0%, -45%);
+    opacity: .6; }
+    @media (max-width: 40em) {
+      .landing-page__image {
+        transform: translate(-20%, -45%);
+        width: 145%; } }
+  .landing-page__header {
+    color: #042210;
+    transform: translate(0%, 40%);
+    font-size: 5rem;
+    padding: 0 10rem;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)); }
+    @media (max-width: 40em) {
+      .landing-page__header {
+        transform: translate(0%, 70%); } }
+  .landing-page__div-second {
+    padding: 1.5rem 10rem; }
+  .landing-page__secondary-header {
+    font-size: 2.5rem; }
+  .landing-page__div-third {
+    padding: 0 10rem; }
+  .landing-page__list-item {
+    margin-left: 5rem; }
+  .landing-page__paragraph {
+    margin: .5rem 0; }
+
 .login {
   padding: 2rem;
   font-size: 4rem;
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  transform: translateX(-50%);
+  height: 90vh;
   background-image: linear-gradient(to right, rgba(87, 188, 144, 0.3), rgba(1, 82, 73, 0.3)); }
   .login__form {
     padding: 5rem;
     border: 1px solid black;
-    display: inline-block; }
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to right bottom, rgba(87, 188, 144, 0.6), rgba(1, 82, 73, 0.6));
+    color: #333; }
   .login__label {
     display: block; }
   .login__input {
@@ -121,15 +164,18 @@ button {
 .signup {
   padding: 2rem;
   font-size: 4rem;
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  transform: translateX(-50%);
+  height: 90vh;
   background-image: linear-gradient(to right, rgba(87, 188, 144, 0.3), rgba(1, 82, 73, 0.3)); }
   .signup__form {
     padding: 5rem;
     border: 1px solid black;
-    display: inline-block; }
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to right bottom, rgba(87, 188, 144, 0.6), rgba(1, 82, 73, 0.6));
+    color: #333; }
   .signup__label {
     display: block; }
   .signup__input {
@@ -153,7 +199,8 @@ button {
   height: 6.25vh;
   padding: 1rem 0 0rem 3rem;
   border-bottom: 1px solid grey;
-  background-color: #57BC90; }
+  background-image: linear-gradient(to right, #57bc90 0.2, #015249);
+  z-index: 10; }
 
 @media (max-width: 60em) and (max-width: 830px) {
   .nav {
@@ -165,12 +212,12 @@ button {
     font-size: 3rem;
     display: inline-block;
     margin-right: 4rem;
-    color: #fff; }
+    color: #333; }
     @media (max-width: 40em) {
       .nav__h1 {
         font-size: 2rem; } }
     .nav__h1:hover {
-      color: #015249; }
+      color: #fff; }
   .nav__ul {
     float: right;
     list-style: none;
@@ -188,7 +235,7 @@ button {
           .nav__ul__li__button {
             padding: 1rem; } }
         .nav__ul__li__button:hover {
-          color: #015249; }
+          color: #57BC90; }
         .nav__ul__li__button:before {
           content: "";
           position: absolute;
@@ -196,7 +243,7 @@ button {
           height: 1rem;
           bottom: 0;
           left: 0;
-          background-color: #015249;
+          background-color: #57BC90;
           opacity: .3;
           visibility: hidden;
           -webkit-transform: scaleX(0);
@@ -210,7 +257,7 @@ button {
 
 .main {
   text-align: center;
-  height: 100vh;
+  height: 90vh;
   background-image: linear-gradient(to right, rgba(87, 188, 144, 0.2), rgba(1, 82, 73, 0.3)); }
   @media (max-width: 40em) {
     .main {
@@ -244,7 +291,9 @@ button {
     position: absolute;
     top: 7%;
     left: 45%;
-    font-size: 4rem; }
+    font-size: 4rem;
+    background-color: #A5A5AF;
+    border-radius: 35%; }
     @media (max-width: 60em) {
       .main__previous {
         top: 13.5rem;
@@ -264,7 +313,9 @@ button {
     position: absolute;
     top: 7%;
     left: 72%;
-    font-size: 4rem; }
+    font-size: 4rem;
+    background-color: #A5A5AF;
+    border-radius: 35%; }
     @media (max-width: 60em) {
       .main__next {
         top: 13.5rem;
@@ -288,6 +339,9 @@ button {
     .main__calendar {
       width: 100vw;
       transform: translateX(-10%); } }
+  @media (orientation: landscape) and (max-width: 570px) {
+    .main__calendar {
+      transform: translateX(-5%); } }
   .main__calendar__days {
     font-size: 2.5rem; }
     @media (max-width: 60em) {
@@ -342,12 +396,16 @@ button {
     position: absolute;
     top: 8%;
     left: 35%;
-    font-size: 4rem; }
+    font-size: 4rem;
+    background-color: #A5A5AF;
+    border-radius: 35%; }
   .weekly__next {
     position: absolute;
     top: 8%;
     left: 62%;
-    font-size: 4rem; }
+    font-size: 4rem;
+    background-color: #A5A5AF;
+    border-radius: 35%; }
   .weekly__ul {
     position: absolute;
     top: 14%;
@@ -414,12 +472,15 @@ button {
     cursor: pointer;
     padding: 0rem 1.75rem;
     border-radius: 2rem;
-    background-color: #57BC90; }
+    background-color: #57BC90;
+    border: 2px solid #015249; }
     @media (max-width: 85.375em) {
       .tasks__exit {
         top: 12%; } }
     .tasks__exit:hover {
-      background-color: #015249; }
+      background-color: #015249;
+      border: 2px solid #57BC90;
+      color: #77C9D4; }
   .tasks__ul__li {
     padding: 2rem;
     font-size: 2.5rem; }
@@ -470,7 +531,7 @@ button {
   width: 100%;
   padding: 2rem;
   height: 6.25vh;
-  background-color: #57BC90; }
+  background-image: linear-gradient(to bottom right, #57bc90 0.2, #015249); }
   @media (max-width: 85.375em) {
     .footer {
       visibility: hidden;
@@ -576,6 +637,24 @@ button {
       visibility: visible;
       -webkit-transform: scale(1);
       transform: scale(1); }
+
+.settings {
+  background-image: linear-gradient(to right, rgba(87, 188, 144, 0.2), rgba(1, 82, 73, 0.3));
+  height: 90vh;
+  z-index: -1; }
+  .settings__password {
+    background-image: linear-gradient(to bottom right, rgba(87, 188, 144, 0.7), rgba(1, 82, 73, 0.7));
+    width: 50%;
+    position: relative;
+    margin: 0rem auto;
+    padding: 2rem;
+    transform: translateY(50%);
+    border-radius: 1rem;
+    color: #333; }
+    .settings__password__form__button {
+      font-size: 2rem;
+      margin: 1rem 0 0 0;
+      padding: .5rem 1rem; }
 
 .youtube {
   max-width: 42.7rem;

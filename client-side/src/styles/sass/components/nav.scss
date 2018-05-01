@@ -3,7 +3,8 @@
     height: 6.25vh;
     padding: 1rem 0 0rem 3rem;
     border-bottom: 1px solid grey;
-    background-color: $color-primary;
+    background-image: linear-gradient(to right, rgba($color-primary, 1) .2, rgba($color-secondary, 1));
+    z-index: 10;
 
     @include respond(tab-port) {
         @media (max-width: 830px) {
@@ -19,14 +20,14 @@
         font-size: 3rem;
         display: inline-block;
         margin-right: 4rem;
-        color: $color-white;
+        color: $color-grey-dark-3;
 
         @include respond(phone) {
             font-size: 2rem;
         }
 
         &:hover {
-            color: $color-secondary;
+            color: $color-white;
         }
     }
 
@@ -51,7 +52,7 @@
                 }        
 
                 &:hover {
-                    color: $color-secondary;
+                    color: $color-primary;
                 }
 
                 &:before {
@@ -61,7 +62,7 @@
                     height: 1rem;
                     bottom: 0;
                     left: 0;
-                    background-color: $color-secondary;
+                    background-color: $color-primary;
                     opacity: .3;
                     visibility: hidden;
                     -webkit-transform: scaleX(0);

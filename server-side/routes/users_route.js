@@ -24,7 +24,6 @@ router.get('/users/:id', (req, res, next) => {
         .from('users')
         .where('users.id', id)
         .then((results) => {
-            console.log(results);
             if (results) {
                 res.json(results)
             } else {
@@ -42,6 +41,8 @@ router.put('/users/:id', (req,res,next) => {
         return bcrypt.hash(password, 10)
     }
     
+    console.log(req.body);
+
     return hashPassword(password)
         .then((digest) => {
             const updateUser = {
@@ -56,6 +57,7 @@ router.put('/users/:id', (req,res,next) => {
                 .update(updateUser)
                 .returning(['id', 'username', 'password', 'settings', 'widgets'])
                 .then((result) => {
+                    console.log(result);
                     res.location(`${req.originalUrl}/${result.id}`).status(201).json(result);
                 })
                 .catch(err => next(err));

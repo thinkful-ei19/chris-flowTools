@@ -1,4 +1,5 @@
 import {API_BASE_URL} from '../config';
+import {changeTab} from './tasks';
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = notes => ({
@@ -36,3 +37,26 @@ export const fetchProtectedData = (userId) => (dispatch, getState) => {
             dispatch(fetchProtectedDataError(err));
         });
 };
+
+export const changePassword = (userId, password) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    const userId = getState().auth.userId
+
+    const body = {
+        password: password
+    }
+    return fetch(`${API_BASE_URL}/api/users/${userId}`, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: {
+            Authorization: `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        },
+    })
+    .then((res) => {
+        res.json(res);
+    })
+    .then((res) => dispatch(changeTab('calendar')))
+    .catch((err) => dispatch(fetchProtectedDataError(err)))
+}
+

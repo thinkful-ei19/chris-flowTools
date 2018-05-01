@@ -1,0 +1,27 @@
+.settings {
+    background-image: linear-gradient(to right, rgba($color-primary, 0.2), rgba($color-secondary, 0.3));
+    height: 90vh;
+    z-index: -1;
+
+    &__password {
+        background-image: linear-gradient(to bottom right, rgba($color-primary, .7), rgba($color-secondary, .7));
+        width: 50%;
+        position: relative;
+        margin: 0rem auto;
+        padding: 2rem;
+        transform: translateY(50%);
+        border-radius: 1rem;
+        color: $color-grey-dark-3;
+
+        &__form {
+            
+            &__button {
+                font-size: 2rem;
+                margin: 1rem 0 0 0;
+                padding: .5rem 1rem;
+            }
+        }
+    }
+
+    
+}

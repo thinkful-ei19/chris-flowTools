@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import moment from 'moment';
-import {getTasks, setWeek} from '../actions/tasks';
+import {getTasks, setWeek, changeTab} from '../actions/tasks';
 
 export class DateRows extends React.Component {
     constructor(props) {
@@ -249,6 +249,7 @@ export class DateRows extends React.Component {
         const htmlArray = finalDateArray.map(function(item) {
             const handleClick = (value, data) => {
                 dispatchGetTasks(value.target.id)
+                bindThis.props.dispatch(changeTab('tasks'))
                 bindThis.props.dispatch(setWeek(Math.ceil(data/7)))
             }
 
@@ -256,46 +257,88 @@ export class DateRows extends React.Component {
 
         //Current Date
             if (String(item.value) === String(moment().format('YYYY-MM-DD'))) {
-
-                if (item.notes.length > 0) {
-                    let checked = true;
-                    item.notes.forEach((note) => {
-                        if (note.checked === false) {
-                            checked = false
+                if (moment(currentMonth).format('MM') !== moment(item.value).format('MM')) {
+                    if (item.notes.length > 0) {
+                        let checked = true;
+                        item.notes.forEach((note) => {
+                            if (note.checked === false) {
+                                checked = false
+                            }
+                        })
+                        if (checked === false) {
+                            return (
+                                <span
+                                onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
+                                key={item.value}
+                                id={item.value}
+                                className="main__calendar__block other-month-day current-day current-day-tasks">
+                                {item.day}
+                                </span>
+                            )
+                        } else {
+                            return (
+                                <span
+                                onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
+                                key={item.value}
+                                id={item.value}
+                                className="main__calendar__block other-month-day current-day current-day-finished">
+                                {item.day}
+                                </span>
+                            )
                         }
-                    })
-                    if (checked === false) {
-                        return (
-                            <span
-                            onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
-                            key={item.value}
-                            id={item.value}
-                            className="main__calendar__block current-day current-day-tasks">
-                            {item.day}
-                            </span>
-                        )
                     } else {
                         return (
                             <span
                             onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                             key={item.value}
                             id={item.value}
-                            className="main__calendar__block current-day current-day-finished">
+                            className="main__calendar__block other-month-day current-day">
                             {item.day}
                             </span>
                         )
                     }
                 } else {
-                    return (
-                        <span
-                        onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
-                        key={item.value}
-                        id={item.value}
-                        className="main__calendar__block current-day">
-                        {item.day}
-                        </span>
-                    )
+                    if (item.notes.length > 0) {
+                        let checked = true;
+                        item.notes.forEach((note) => {
+                            if (note.checked === false) {
+                                checked = false
+                            }
+                        })
+                        if (checked === false) {
+                            return (
+                                <span
+                                onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
+                                key={item.value}
+                                id={item.value}
+                                className="main__calendar__block current-day current-day-tasks">
+                                {item.day}
+                                </span>
+                            )
+                        } else {
+                            return (
+                                <span
+                                onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
+                                key={item.value}
+                                id={item.value}
+                                className="main__calendar__block current-day current-day-finished">
+                                {item.day}
+                                </span>
+                            )
+                        }
+                    } else {
+                        return (
+                            <span
+                            onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
+                            key={item.value}
+                            id={item.value}
+                            className="main__calendar__block current-day">
+                            {item.day}
+                            </span>
+                        )
+                    }
                 }
+
 
         //Previous Date
             } else if (moment(item.value).valueOf() < moment().valueOf()) {

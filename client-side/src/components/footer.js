@@ -15,24 +15,35 @@ export class Footer extends React.Component {
           return bindThis.props.dispatch(toggleYoutube())
         }
 
-        return (
-            <div className="footer">
-                <ul className="footer__ul">
-                    {/* <li className="footer__ul__li"><a className="footer__ul__li__button">Pomodoro</a></li> */}
-                    <li className="footer__ul__li"><a onClick={dispatchToggleYoutube} className="footer__ul__li__button">Youtube</a></li>
-                    {/* <li className="footer__ul__li"><a className="footer__ul__li__button">Slack</a></li> */}
-                </ul>
-            </div>
-        )
+        if (this.props.loggedIn) {
+            return (
+                <div className="footer">
+                    <ul className="footer__ul">
+                        {/* <li className="footer__ul__li"><a className="footer__ul__li__button">Pomodoro</a></li> */}
+                        <li className="footer__ul__li"><a onClick={dispatchToggleYoutube} className="footer__ul__li__button">Youtube</a></li>
+                        {/* <li className="footer__ul__li"><a className="footer__ul__li__button">Slack</a></li> */}
+                    </ul>
+                </div>
+            )
+        } else {
+            return (
+                <div className="footer">
+
+                </div>
+            )
+        }
+
+
     }
 }
 
 const mapStateToProps = state => {
     return {
-      youtube: {
-        on: state.widgets.youtube.on,
-        minimized: state.widgets.youtube.minimized
-      }
+    loggedIn: state.auth.userId !== null,
+        youtube: {
+            on: state.widgets.youtube.on,
+            minimized: state.widgets.youtube.minimized
+        }
     }
   }
     
