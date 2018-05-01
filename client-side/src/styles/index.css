@@ -1,3 +1,9 @@
+/*
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
 @keyframes expandDown {
   0% {
     transform: translateY(-40%); }
@@ -54,6 +60,18 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 112.5em) {
+    html {
+      font-size: 62.5%; } }
+  @media (max-width: 85.375em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 60em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 40em) {
+    html {
+      font-size: 37.5%; } }
 
 body {
   box-sizing: border-box;
@@ -62,7 +80,8 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777; }
+  color: #777;
+  overflow-y: hidden; }
 
 button {
   cursor: pointer;
@@ -135,11 +154,21 @@ button {
   padding: 1rem 0 0rem 3rem;
   border-bottom: 1px solid grey;
   background-color: #57BC90; }
+
+@media (max-width: 60em) and (max-width: 830px) {
+  .nav {
+    height: 10vh; } }
+  @media (max-width: 40em) {
+    .nav {
+      height: 8vh; } }
   .nav__h1 {
     font-size: 3rem;
     display: inline-block;
     margin-right: 4rem;
     color: #fff; }
+    @media (max-width: 40em) {
+      .nav__h1 {
+        font-size: 2rem; } }
     .nav__h1:hover {
       color: #015249; }
   .nav__ul {
@@ -155,6 +184,9 @@ button {
         text-decoration: none;
         padding: 2rem;
         font-size: 2rem; }
+        @media (max-width: 40em) {
+          .nav__ul__li__button {
+            padding: 1rem; } }
         .nav__ul__li__button:hover {
           color: #015249; }
         .nav__ul__li__button:before {
@@ -178,8 +210,14 @@ button {
 
 .main {
   text-align: center;
-  height: 90vh;
+  height: 100vh;
   background-image: linear-gradient(to right, rgba(87, 188, 144, 0.2), rgba(1, 82, 73, 0.3)); }
+  @media (max-width: 40em) {
+    .main {
+      height: 100vh; } }
+  @media (orientation: portrait) {
+    .main {
+      overflow-y: hidden; } }
   .main__toggleWeekly {
     cursor: pointer;
     font-weight: bold;
@@ -189,6 +227,9 @@ button {
     left: 22.5%;
     top: 8%;
     position: absolute; }
+    @media (max-width: 85.375em) {
+      .main__toggleWeekly {
+        visibility: hidden; } }
   .main__right {
     width: 80%;
     display: inline-block; }
@@ -196,30 +237,85 @@ button {
     text-align: center;
     font-size: 4rem;
     display: inline-block; }
+    @media (max-width: 60em) {
+      .main__month {
+        font-size: 3rem; } }
   .main__previous {
     position: absolute;
-    top: 8%;
+    top: 7%;
     left: 45%;
     font-size: 4rem; }
+    @media (max-width: 60em) {
+      .main__previous {
+        top: 13.5rem;
+        font-size: 3rem; } }
+    @media (max-width: 830px) and (orientation: landscape) {
+      .main__previous {
+        top: 6rem; } }
+    @media (max-width: 85.375em) {
+      .main__previous {
+        left: 27.5%; } }
+    @media (max-width: 40em) {
+      .main__previous {
+        left: 15%;
+        font-size: 2.5rem;
+        top: 9%; } }
   .main__next {
     position: absolute;
-    top: 8%;
+    top: 7%;
     left: 72%;
     font-size: 4rem; }
-  .main__days {
+    @media (max-width: 60em) {
+      .main__next {
+        top: 13.5rem;
+        font-size: 3rem; } }
+    @media (max-width: 830px) and (orientation: landscape) {
+      .main__next {
+        top: 6rem; } }
+    @media (max-width: 85.375em) {
+      .main__next {
+        left: 68.5%; } }
+    @media (max-width: 40em) {
+      .main__next {
+        font-size: 2.5rem;
+        left: 80%;
+        top: 9%; } }
+  @media (max-width: 85.375em) {
+    .main__calendar {
+      width: 100vw;
+      transform: translateX(-10%); } }
+  @media (max-width: 40em) {
+    .main__calendar {
+      width: 100vw;
+      transform: translateX(-10%); } }
+  .main__calendar__days {
     font-size: 2.5rem; }
-    .main__days__day {
+    @media (max-width: 60em) {
+      .main__calendar__days {
+        font-size: 1.8rem; } }
+    .main__calendar__days__day {
       display: inline-block;
       width: 13.5%;
-      text-align: center; }
-  .main__block {
+      text-align: center;
+      overflow: hidden; }
+  .main__calendar__block {
     cursor: pointer;
     width: 13.5%;
     display: inline-block;
     padding: 3rem;
     font-size: 4rem;
     border: 1px solid #777; }
-    .main__block:hover {
+    @media (max-width: 60em) {
+      .main__calendar__block {
+        font-size: 1.35rem;
+        width: 13.2%;
+        padding: 2rem; } }
+    @media (max-width: 40em) {
+      .main__calendar__block {
+        font-size: 2.5rem;
+        width: 13%;
+        padding: 1.5rem; } }
+    .main__calendar__block:hover {
       background-color: #77C9D4;
       transform: scale(1.05);
       z-index: 1;
@@ -319,6 +415,9 @@ button {
     padding: 0rem 1.75rem;
     border-radius: 2rem;
     background-color: #57BC90; }
+    @media (max-width: 85.375em) {
+      .tasks__exit {
+        top: 12%; } }
     .tasks__exit:hover {
       background-color: #015249; }
   .tasks__ul__li {
@@ -372,6 +471,12 @@ button {
   padding: 2rem;
   height: 6.25vh;
   background-color: #57BC90; }
+  @media (max-width: 85.375em) {
+    .footer {
+      visibility: hidden;
+      height: 0;
+      width: 0;
+      padding: 0; } }
   .footer__ul {
     list-style: none;
     margin-right: 3rem; }
@@ -414,6 +519,10 @@ button {
   border-bottom: 1px solid #000;
   z-index: -1;
   background-image: linear-gradient(to bottom right rgba(87, 188, 144, 0.1), rgba(87, 188, 144, 0.1)); }
+  @media (max-width: 85.375em) {
+    .notifications {
+      visibility: hidden;
+      width: 0%; } }
   .notifications__header {
     font-size: 2.25rem;
     border-bottom: 1px solid #000; }

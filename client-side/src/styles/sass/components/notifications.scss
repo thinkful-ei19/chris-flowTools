@@ -1,4 +1,10 @@
 .notifications {
+
+    @include respond(tab-land) {
+        visibility: hidden;
+        width: 0%;
+    }
+
     width: 20%;
     height: 93.75vh;
     display: block;

@@ -5,11 +5,25 @@
     border-bottom: 1px solid grey;
     background-color: $color-primary;
 
+    @include respond(tab-port) {
+        @media (max-width: 830px) {
+            height: 10vh;
+        }
+    }
+
+    @include respond(phone) {
+        height: 8vh;
+    }
+
     &__h1 {
         font-size: 3rem;
         display: inline-block;
         margin-right: 4rem;
         color: $color-white;
+
+        @include respond(phone) {
+            font-size: 2rem;
+        }
 
         &:hover {
             color: $color-secondary;
@@ -31,6 +45,10 @@
                 text-decoration: none;
                 padding: 2rem;
                 font-size: 2rem;
+
+                @include respond(phone) {
+                    padding: 1rem;
+                }        
 
                 &:hover {
                     color: $color-secondary;

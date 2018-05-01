@@ -270,7 +270,7 @@ export class DateRows extends React.Component {
                             onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                             key={item.value}
                             id={item.value}
-                            className="main__block current-day current-day-tasks">
+                            className="main__calendar__block current-day current-day-tasks">
                             {item.day}
                             </span>
                         )
@@ -280,7 +280,7 @@ export class DateRows extends React.Component {
                             onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                             key={item.value}
                             id={item.value}
-                            className="main__block current-day current-day-finished">
+                            className="main__calendar__block current-day current-day-finished">
                             {item.day}
                             </span>
                         )
@@ -291,7 +291,7 @@ export class DateRows extends React.Component {
                         onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                         key={item.value}
                         id={item.value}
-                        className="main__block current-day">
+                        className="main__calendar__block current-day">
                         {item.day}
                         </span>
                     )
@@ -314,7 +314,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block other-month-day overdue-tasks">
+                                className="main__calendar__block other-month-day overdue-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -324,7 +324,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block other-month-day finished-tasks">
+                                className="main__calendar__block other-month-day finished-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -335,7 +335,7 @@ export class DateRows extends React.Component {
                             onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                             key={item.value}
                             id={item.value}
-                            className="main__block other-month-day">
+                            className="main__calendar__block other-month-day">
                             {item.day}
                             </span>
                         )
@@ -354,7 +354,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block overdue-tasks">
+                                className="main__calendar__block overdue-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -364,7 +364,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block finished-tasks">
+                                className="main__calendar__block finished-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -375,7 +375,7 @@ export class DateRows extends React.Component {
                             onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                             key={item.value}
                             id={item.value}
-                            className="main__block">
+                            className="main__calendar__block">
                             {item.day}
                             </span>
                         )
@@ -399,7 +399,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block other-month-day due-tasks">
+                                className="main__calendar__block other-month-day due-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -409,7 +409,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block other-month-day finished-tasks">
+                                className="main__calendar__block other-month-day finished-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -420,7 +420,7 @@ export class DateRows extends React.Component {
                             onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                             key={item.value}
                             id={item.value}
-                            className="main__block other-month-day">
+                            className="main__calendar__block other-month-day">
                             {item.day}
                             </span>
                         )
@@ -439,7 +439,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block due-tasks">
+                                className="main__calendar__block due-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -449,7 +449,7 @@ export class DateRows extends React.Component {
                                 onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                                 key={item.value}
                                 id={item.value}
-                                className="main__block finished-tasks">
+                                className="main__calendar__block finished-tasks">
                                 {item.day}
                                 </span>
                             )
@@ -460,7 +460,7 @@ export class DateRows extends React.Component {
                             onClick={(value) => handleClick(value, finalDateArray.indexOf(item) + 1)}
                             key={item.value}
                             id={item.value}
-                            className="main__block">
+                            className="main__calendar__block">
                             {item.day}
                             </span>
                         )

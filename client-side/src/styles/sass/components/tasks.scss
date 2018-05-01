@@ -17,6 +17,10 @@
         border-radius: 2rem;
         background-color: $color-primary;
 
+        @include respond(tab-land) {
+            top: 12%;
+        }
+
          &:hover {
              background-color: $color-secondary;
          }

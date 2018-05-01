@@ -7,6 +7,13 @@
     height: 6.25vh;
     background-color: $color-primary;
 
+    @include respond(tab-land) {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        padding: 0;
+    }
+
     &__ul {
         list-style: none;
         margin-right: 3rem;

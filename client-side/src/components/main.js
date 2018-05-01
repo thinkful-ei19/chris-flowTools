@@ -69,8 +69,8 @@ export class Main extends React.Component {
             return (
                 <div className="main">
                     <Notifications />
-                    <a onClick={redirectToWeekly} className="main__toggleWeekly" >Toggle Weekly View</a>
                     <div className="main__right">
+                    <a onClick={redirectToWeekly} className="main__toggleWeekly" >Toggle Weekly View</a>
                         <button onClick={decrement} className="main__previous">&#8592;</button>
                         <h2 className="main__month">{monthYear}</h2>
                         <button onClick={increment} className="main__next">&#8594;</button>

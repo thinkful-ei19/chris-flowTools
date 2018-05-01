@@ -1,7 +1,17 @@
 .main {
     text-align: center;
-    height: 90vh;
+    height: 100vh;
     background-image: linear-gradient(to right, rgba($color-primary, 0.2), rgba($color-secondary, 0.3));
+    
+
+    @include respond(phone) {
+        height: 100vh;
+    }
+
+    @media (orientation: portrait) {
+        overflow-y: hidden;
+    }
+    
 
     &__toggleWeekly {
         cursor: pointer;
@@ -12,6 +22,10 @@
         left: 22.5%;
         top: 8%;
         position: absolute;
+
+        @include respond(tab-land) {
+            visibility: hidden;
+        }
     }
 
     &__right {
@@ -24,46 +38,117 @@
         text-align: center;
         font-size: 4rem;
         display: inline-block;
+
+        @include respond(tab-port) {
+            font-size: 3rem;
+        }
+        
     }
 
     &__previous {
         position: absolute;
-        top: 8%;
+        top: 7%;
         left: 45%;
         font-size: 4rem;
+
+        @include respond(tab-port) {
+            top: 13.5rem;
+            font-size: 3rem;
+        }
+        
+        @media (max-width: 830px) and (orientation:landscape) {
+            top: 6rem;
+        }
+
+        @include respond(tab-land) {
+            left: 27.5%;
+        }
+        @include respond(phone) {
+            left: 15%;
+            font-size: 2.5rem;
+            top: 9%;
+        }
     }
 
     &__next {
         position: absolute;
-        top: 8%;
+        top: 7%;
         left: 72%;
         font-size: 4rem;
+        
+        @include respond(tab-port) {
+            top: 13.5rem;
+            font-size: 3rem;
+        }
+
+        @media (max-width: 830px) and (orientation:landscape) {
+            top: 6rem;
+        }
+
+        @include respond(tab-land) {
+            left: 68.5%;
+        }
+
+        @include respond(phone) {
+            font-size: 2.5rem;
+            left: 80%;
+            top: 9%;
+        }
     }
 
-    &__days {
-        font-size: 2.5rem;
+    &__calendar {
 
-        &__day {
-            display: inline-block;
+        @include respond(tab-land) {
+            width: 100vw;
+            transform: translateX(-10%);
+        }
+
+        @include respond(phone) {
+            width: 100vw;
+            transform: translateX(-10%);
+        }
+
+        &__days {
+            font-size: 2.5rem;
+            
+            @include respond(tab-port) {
+                font-size: 1.8rem;
+            }
+    
+            &__day {
+                display: inline-block;
+                width: 13.5%;
+                text-align: center;
+                overflow: hidden;
+            }
+        }
+    
+        &__block {
+            cursor: pointer;
             width: 13.5%;
-            text-align: center;
+            display: inline-block;
+            padding: 3rem;
+            font-size: 4rem;
+            border: 1px solid $color-grey-dark;
+
+            @include respond(tab-port) {
+                font-size: 1.35rem;
+                width: 13.2%;
+                padding: 2rem;
+            }
+
+            @include respond(phone) {
+                font-size: 2.5rem;
+                width: 13%;
+                padding: 1.5rem;
+            }
+    
+            &:hover {
+                background-color: $color-third;
+                transform: scale(1.05);
+                z-index: 1;
+                transition: .1s;
+            }
         }
     }
-
-    &__block {
-        cursor: pointer;
-        width: 13.5%;
-        display: inline-block;
-        padding: 3rem;
-        font-size: 4rem;
-        border: 1px solid $color-grey-dark;
-
-        &:hover {
-            background-color: $color-third;
-            transform: scale(1.05);
-            z-index: 1;
-            transition: .1s;
-        }
-    }
-
 }
