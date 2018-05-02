@@ -29,7 +29,7 @@ export class Nav extends React.Component {
                 <ul className="nav__ul">
                     <li className="nav__ul__li"><a onClick={calendar} className="nav__ul__li__button">Calendar</a></li>
                     <li className="nav__ul__li"><a onClick={settings} className="nav__ul__li__button">Settings</a></li>
-                    <li className="nav__ul__li"><a onClick={logout} className="nav__ul__li__button">Logout</a></li>
+                    <li className="nav__ul__li"><a onClick={logout} href="/" className="nav__ul__li__button">Logout</a></li>
                 </ul>
             </nav>
             )
@@ -38,8 +38,8 @@ export class Nav extends React.Component {
                 <nav className="nav">
                     <h1 className="nav__h1">Flow Tools</h1>
                     <ul className="nav__ul">
-                        {/* <li className="nav__ul__li"><a className="nav__ul__li__button">Settings</a></li> */}
                         <li className="nav__ul__li"><a href="/login" className="nav__ul__li__button">Login</a></li>
+                        <li className="nav__ul__li"><a href="/signup" className="nav__ul__li__button">Signup</a></li>
                     </ul>
                 </nav>
             )

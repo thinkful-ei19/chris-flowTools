@@ -5,7 +5,7 @@ import requiresLogin from './requires-login';
 import PasswordChange from './password-change';
 
 export function Login (props) {
-    console.log(props.currentTab)
+    
     if (!props.loggedIn) {
         return <Redirect to="/login" />
     }

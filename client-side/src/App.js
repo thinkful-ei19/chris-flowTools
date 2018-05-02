@@ -30,7 +30,7 @@ export class App extends Component {
     }
 
     baseJSX.push(
-      <div key={1} className="app">
+      <div key={2} className="app">
         <Nav />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
@@ -38,17 +38,23 @@ export class App extends Component {
         <Route exact path="/weekly" component={WeeklyView} />
         <Route exact path="/tasks" component={Tasks} />
         <Route exact path="/settings" component={Settings} />
+        <Route exact path="/signup" component={Footer} />
+        <Route exact path="/login" component={Footer} />
+        <Route exact path="/calendar" component={Footer} />
+        <Route exact path="/weekly" component={Footer} />
+        <Route exact path="/tasks" component={Footer} />
+        <Route exact path="/settings" component={Footer} />
+
         <Route exact path="/" component={LandingPage} />
-        <Footer />
       </div>
     )
 
     return (
-      <div>
+      <main>
       {youtube}
       {pomodoro}
       {baseJSX}
-      </div>
+      </main>
     );
   }
 }

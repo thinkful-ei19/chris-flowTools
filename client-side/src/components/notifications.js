@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import moment from 'moment';
 import {updateTask, deleteTask} from '../actions/tasks';
-import {getTasks} from '../actions/tasks';
+import {changeTab, getTasks} from '../actions/tasks';
 
 export class Notifications extends React.Component {
 
@@ -36,6 +36,7 @@ export class Notifications extends React.Component {
         const buildJSX = dueTasks.map((note) => {
             const handleClick = (value) => {
                 dispatchGetTasks(value.target.id)
+                bindThis.props.dispatch(changeTab('tasks'));
             }
             const noteValue = new Date(note.duedate.slice(0, 10)).getTime();
             const currentDateValue = new Date(currentDate.slice(0, 10)).getTime();

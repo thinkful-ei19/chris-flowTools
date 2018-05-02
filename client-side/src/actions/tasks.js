@@ -118,8 +118,6 @@ export const updateTask = (noteId, userId, content) => (dispatch, getState) => {
         }
     }
 
-    console.log(updateNote)
-
     return fetch(`${API_BASE_URL}/api/notes/${noteId}`, {
         method: 'PUT',
         body: JSON.stringify(updateNote),

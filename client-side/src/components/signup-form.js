@@ -16,7 +16,7 @@ class SignupForm extends React.Component {
                 <form className="signup__form"
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
-                <h4 className="signup__header">Signup Form</h4>
+                <h4 className="signup__header">Signup</h4>
                     <label className="signup__label" htmlFor="username">Username</label>
                     {/* <input className="signup__input"></input> */}
                     <Field

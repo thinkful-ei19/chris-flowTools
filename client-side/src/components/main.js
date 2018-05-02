@@ -54,6 +54,7 @@ export class Main extends React.Component {
         const monthYear = moment(String(`${currentYear}-${currentMonth}`)).format('MMMM YYYY');
 
         function redirectToWeekly() {
+            bindThis.props.dispatch(changeTab('weekly'))
             bindThis.setState({redirect: true})            
         }
         
@@ -64,7 +65,6 @@ export class Main extends React.Component {
         }
 
         if (this.state.redirect === true) {
-            bindThis.props.dispatch(changeTab('weekly'))
             return <Redirect to='/weekly' />
         }
         else {

@@ -12,8 +12,7 @@ export class PomodoroApp extends Component {
             seconds: 0,
             restMinutes: 5,
             restSeconds: 0,
-            count: 0,
-            interval: null
+            count: 0
         }
         
         this.start = this.start.bind(this);
