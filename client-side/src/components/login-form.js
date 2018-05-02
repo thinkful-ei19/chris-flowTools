@@ -5,9 +5,6 @@ import Input from './input';
 import {login} from '../actions/auth'
 
 class LoginForm extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password))

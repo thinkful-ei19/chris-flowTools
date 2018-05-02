@@ -5,7 +5,7 @@ const VideoListItem = ({video, onVideoSelect}) => {
 
     return (
     <li onClick={() => onVideoSelect(video)} className="youtube__li">
-        <img className="youtube__li__thumbnail" src={imageUrl} />
+        <img alt="thumbnail" className="youtube__li__thumbnail" src={imageUrl} />
         <span className="youtube__li__details">{video.snippet.title}</span>
     </li>
     );

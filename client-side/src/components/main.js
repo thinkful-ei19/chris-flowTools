@@ -1,12 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
 import Notifications from './notifications';
 import moment from 'moment';
 import {fetchProtectedData} from '../actions/users';
-import {login} from './login';
 import requiresLogin from './requires-login';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {changeTab, selectMonth, selectYear} from '../actions/tasks'
 
 import DaysRow from './daysRow';

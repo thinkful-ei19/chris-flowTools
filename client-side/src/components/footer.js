@@ -1,12 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
 import {toggleYoutube, togglePomodoro} from '../actions/widgets';
 
 export class Footer extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
 

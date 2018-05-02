@@ -1,15 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {login} from '../actions/auth';
-import LoginForm from './login-form';
-import {Redirect} from 'react-router-dom';
 
 export function LandingPage (props) {
 
     return (
             <div className="landing-page">
                 <div className="landing-page__div-first">
-                    <img className="landing-page__image"></img>
+                    <img className="landing-page__image" alt="Computer"></img>
                     <h2 className="landing-page__header">Make productivity simple</h2>
                 </div>
                 <div className="landing-page__div-second">

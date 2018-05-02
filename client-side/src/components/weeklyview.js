@@ -1,12 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
-import {fetchProtectedData} from '../actions/users';
-import {login} from './login';
 import requiresLogin from './requires-login';
 import {Redirect} from 'react-router-dom';
 import EditForm from './edit-form-weekly';
-import {getTasks, selectMonth, selectYear, selectWeek, unselectDate, selectNote, postNewTask, deleteTask, updateTask, unselectNote} from '../actions/tasks'
+import {getTasks, selectWeek, selectNote, postNewTask, deleteTask, updateTask, unselectNote} from '../actions/tasks'
 
 import DaysRow from './daysRow-Weekly';
 
@@ -55,13 +53,13 @@ export class WeeklyView extends React.Component {
         const currentYear = String(this.props.selectedYear);
         const currentMonth = String(this.props.selectedMonth)
         
-        const maxDays = moment(`${currentMonth}`).daysInMonth()
+        const maxDays = moment(`${currentYear}-${currentMonth}-01`).daysInMonth()
 
         const currentDay = moment().format('DD');
-        const monthYear = moment(String(`${currentYear}-${currentMonth}`)).format('MMMM YYYY');
+        const monthYear = moment(String(`${currentYear}-${currentMonth}-01`)).format('MMMM YYYY');
 
-        const firstDayOfMonth = moment(`${currentYear}-${currentMonth}`).startOf('month').format('e');
-        const previousMonthDate = moment(`${currentYear}-${currentMonth}`).subtract(1, 'months').endOf('month').format('YYYY-MM-DD')
+        const firstDayOfMonth = moment(`${currentYear}-${currentMonth}-01`).startOf('month').format('e');
+        const previousMonthDate = moment(`${currentYear}-${currentMonth}-01`).subtract(1, 'months').endOf('month').format('YYYY-MM-DD')
         const maxDaysPrevious = moment(`${previousMonthDate}`).daysInMonth();
         const previousMonth = previousMonthDate.slice(5, 7);
 

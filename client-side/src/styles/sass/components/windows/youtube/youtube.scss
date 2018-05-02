@@ -1,9 +1,11 @@
 .youtube {
+    min-width: 42.7rem;
     max-width: 42.7rem;
     position: fixed;
     z-index: 20;
 
     &__handle {
+        min-width: 42.7rem;
         cursor: grab;
         padding: .5rem 2rem;
         border: 2px solid $color-fourth;
@@ -35,6 +37,8 @@
             visibility: hidden;
             &:checked ~ .youtube__main  {
                 visibility: hidden;
+                position: absolute;
+                left: -1000rem;
             }
         }
     }

@@ -1,7 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import {API_BASE_URL} from '../config'
 import {normalizeResponseErrors} from './utils';
-import {Link, Redirect} from 'react-router-dom';
 
 export const SAVE_USER_ID = 'SAVE_USER_ID';
 export const saveUserId = (userId) => ({
@@ -41,8 +40,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = (username, password) => dispatch => {
     let authTokenSave;
-    let userIdSave;
-    console.log('attempting login')
     return (
         //Grab authToken
         fetch(`${API_BASE_URL}/login`, {
@@ -77,22 +74,15 @@ export const login = (username, password) => dispatch => {
             .then((res) => res.json(res))
             .then((res) => res.forEach((user) => {
                 if (user.username === username) {
-                    userIdSave = user.id;
                     dispatch(saveUserId(user.id));
                 }
             }))
         })
-        .catch(err => {
-            console.log(err);
-        })
+        .catch((err) => alert(err))
     )
 }
 
 export const signUp = (username, password) => {
-    console.log(JSON.stringify({
-        username,
-        password
-    }))
     return (
         //Grab authToken
         fetch(`${API_BASE_URL}/signup`, {

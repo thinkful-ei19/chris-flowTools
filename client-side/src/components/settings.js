@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import requiresLogin from './requires-login';
 import PasswordChange from './password-change';
-import {changePassword} from '../actions/users';
 
 export function Login (props) {
     console.log(props.currentTab)
@@ -14,10 +13,6 @@ export function Login (props) {
         return <Redirect to='/calendar' />
     } else if (props.currentTab === 'tasks') {
         return <Redirect to ='/tasks' />
-    }
-
-    function onSubmit(value) {
-        return this.props.dispatch(changePassword(this.props.userId, value.newPassword))
     }
 
     return (

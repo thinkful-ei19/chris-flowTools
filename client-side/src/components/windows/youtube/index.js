@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './search_bar';
 import VideoList from './video_list';

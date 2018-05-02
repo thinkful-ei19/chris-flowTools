@@ -1,14 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
 import {changeTab, unselectDate} from '../actions/tasks';
 
 export class Nav extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const bindThis = this;

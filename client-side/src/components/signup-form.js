@@ -2,13 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
-import {login, signUp} from '../actions/auth'
-import {Link, Redirect} from 'react-router-dom';
+import {signUp} from '../actions/auth'
 
 class SignupForm extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     onSubmit(values) {
         return this.props.dispatch(signUp(values.username, values.password))

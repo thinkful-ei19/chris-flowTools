@@ -73,7 +73,6 @@ export const postNewTask = (date, userId) => (dispatch, getState) => {
         checked: false
     }
 
-    console.log(postNote);
 
     return fetch(`${API_BASE_URL}/api/notes`, {
         method: 'POST',

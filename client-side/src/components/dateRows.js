@@ -1,23 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import moment from 'moment';
 import {getTasks, setWeek, changeTab} from '../actions/tasks';
 
 export class DateRows extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         const currentYear = String(this.props.selectedYear);
         const fixedCurrentYear = moment().format('YYYY');
         const currentMonth = String(this.props.selectedMonth)
         const fixedCurrentMonth = moment().format('MM');
-        const maxDays = moment(`${currentMonth}`).daysInMonth()
-
-        const firstDayOfMonth = moment(`${currentYear}-${currentMonth}`).startOf('month').format('e');
-        const previousMonthDate = moment(`${currentYear}-${currentMonth}`).subtract(1, 'months').endOf('month').format('YYYY-MM-DD')
+        const maxDays = moment(`${currentYear}-${currentMonth}-01`).daysInMonth()
+        const firstDayOfMonth = moment(`${currentYear}-${currentMonth}-01`).startOf('month').format('e');
+        const previousMonthDate = moment(`${currentYear}-${currentMonth}-01`).subtract(1, 'months').endOf('month').format('YYYY-MM-DD')
         const maxDaysPrevious = moment(`${previousMonthDate}`).daysInMonth();
         const previousMonth = previousMonthDate.slice(5, 7);
 
@@ -257,7 +253,7 @@ export class DateRows extends React.Component {
 
         //Current Date
             if (String(item.value) === String(moment().format('YYYY-MM-DD'))) {
-                if (moment(currentMonth).format('MM') !== moment(item.value).format('MM')) {
+                if (moment(`${currentYear}-${currentMonth}-01`).format('MM') !== moment(item.value).format('MM')) {
                     if (item.notes.length > 0) {
                         let checked = true;
                         item.notes.forEach((note) => {
@@ -343,7 +339,7 @@ export class DateRows extends React.Component {
         //Previous Date
             } else if (moment(item.value).valueOf() < moment().valueOf()) {
 
-                if (moment(currentMonth).format('MM') !== moment(item.value).format('MM')) {
+                if (moment(`${currentYear}-${currentMonth}-01`).format('MM') !== moment(item.value).format('MM')) {
                     if (item.notes.length > 0) {
                         let checked = true;
                         item.notes.forEach((note) => {
@@ -428,7 +424,7 @@ export class DateRows extends React.Component {
         //Future Date
             } else if (moment(item.value).valueOf() > moment().valueOf()) {
 
-                if (moment(currentMonth).format('MM') !== moment(item.value).format('MM')) {
+                if (moment(`${currentYear}-${currentMonth}-01`).format('MM') !== moment(item.value).format('MM')) {
                     if (item.notes.length > 0) {
                         let checked = true;
                         item.notes.forEach((note) => {
@@ -510,9 +506,9 @@ export class DateRows extends React.Component {
                     }
                 }
             }
-
+            return false;
         })
-
+        
         return (
             htmlArray
         )

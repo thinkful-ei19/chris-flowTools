@@ -657,10 +657,12 @@ button {
       padding: .5rem 1rem; }
 
 .youtube {
+  min-width: 42.7rem;
   max-width: 42.7rem;
   position: fixed;
   z-index: 20; }
   .youtube__handle {
+    min-width: 42.7rem;
     cursor: grab;
     padding: .5rem 2rem;
     border: 2px solid #A5A5AF;
@@ -682,7 +684,9 @@ button {
     .youtube__minimize__checkbox {
       visibility: hidden; }
       .youtube__minimize__checkbox:checked ~ .youtube__main {
-        visibility: hidden; }
+        visibility: hidden;
+        position: absolute;
+        left: -1000rem; }
   .youtube__main {
     padding: .5rem;
     border: 1px solid #A5A5AF;
@@ -721,15 +725,19 @@ button {
       transform: translateY(-35%); }
 
 .pomodoro {
-  max-width: 42.7rem;
+  min-width: 15rem;
+  max-width: 15rem;
   position: fixed;
+  left: 5%;
+  top: 60%;
   z-index: 20; }
   .pomodoro__handle {
     cursor: grab;
     padding: .5rem 2rem;
     border: 2px solid #A5A5AF;
     background-color: #015249;
-    color: #fff; }
+    color: #fff;
+    z-index: 1; }
     .pomodoro__handle:active {
       cursor: grabbing; }
   .pomodoro__header {
@@ -745,41 +753,37 @@ button {
     font-size: 2rem; }
     .pomodoro__minimize__checkbox {
       visibility: hidden; }
-      .pomodoro__minimize__checkbox:checked ~ .youtube__main {
-        visibility: hidden; }
+      .pomodoro__minimize__checkbox:checked ~ .pomodoro__main {
+        visibility: hidden;
+        position: absolute;
+        left: -1000rem; }
   .pomodoro__main {
-    padding: .5rem;
+    padding: 2rem .5rem .5rem .5rem;
     border: 1px solid #A5A5AF;
     background-image: linear-gradient(to bottom right, rgba(87, 188, 144, 0.9), rgba(87, 188, 144, 0.9));
     color: #000;
-    z-index: 9;
-    transform: translate(0, -5%); }
-  .pomodoro__current__video {
-    height: 22.7rem;
-    width: 40rem; }
-  .pomodoro__current__details {
-    font-size: 1.2rem; }
-  .pomodoro__search__input {
-    display: inline-block;
-    font-size: 2rem;
-    width: 60%; }
-  .pomodoro__search__button {
-    margin-left: .5rem;
-    display: inline-block; }
-  .pomodoro__ul {
-    border: 1px solid #015249;
-    overflow-y: scroll;
-    height: 26rem; }
-  .pomodoro__li {
-    border-bottom: 1px solid #015249;
-    padding: 1rem; }
-    .pomodoro__li__thumbnail {
-      width: 15rem;
-      height: 10rem;
+    transform: translate(0, -25%); }
+  .pomodoro__clock {
+    margin: 0rem 0rem 1.5rem 0rem;
+    padding: 0rem 1rem 1rem 1rem;
+    text-align: center;
+    font-size: 4rem;
+    background-color: #015249;
+    color: #fff;
+    border-radius: 10%; }
+    .pomodoro__clock__minutes {
       display: inline-block; }
-    .pomodoro__li__details {
-      margin-left: 1.5rem;
-      width: 50%;
+    .pomodoro__clock__seconds {
+      display: inline-block; }
+  .pomodoro__options {
+    text-align: center; }
+    .pomodoro__options__start {
+      font-size: 2rem;
       display: inline-block;
-      font-size: 1.4rem;
-      transform: translateY(-35%); }
+      padding: .2rem 1rem;
+      margin: .5rem 2rem; }
+    .pomodoro__options__rest {
+      font-size: 2rem;
+      display: inline-block;
+      padding: .2rem 1rem;
+      margin: .5rem 2rem; }

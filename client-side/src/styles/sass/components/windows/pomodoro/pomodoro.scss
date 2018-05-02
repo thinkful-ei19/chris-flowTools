@@ -1,6 +1,9 @@
 .pomodoro {
-    max-width: 42.7rem;
+    min-width: 15rem;
+    max-width: 15rem;
     position: fixed;
+    left: 5%;
+    top: 60%;
     z-index: 20;
 
     &__handle {
@@ -9,6 +12,7 @@
         border: 2px solid $color-fourth;
         background-color: $color-secondary;
         color: $color-white;
+        z-index: 1;
 
         &:active {
             cursor: grabbing;
@@ -33,67 +37,55 @@
 
         &__checkbox {
             visibility: hidden;
-            &:checked ~ .youtube__main  {
+            &:checked ~ .pomodoro__main  {
                 visibility: hidden;
+                position: absolute;
+                left: -1000rem;
             }
         }
     }
 
     &__main {
-        padding: .5rem;
+        padding: 2rem .5rem .5rem .5rem;
         border: 1px solid $color-fourth;
         background-image: linear-gradient(to bottom right, rgba($color-primary, .9), rgba($color-primary, .9));
         color: $color-black;
-        z-index: 9;
-        transform: translate(0, -5%);
+        transform: translate(0, -25%);
     }
 
-    &__current {
+    &__clock {
+        margin: 0rem 0rem 1.5rem 0rem;
+        padding: 0rem 1rem 1rem 1rem;
+        text-align: center;
+        font-size: 4rem;
+        background-color: $color-secondary;
+        color: $color-white;
+        border-radius: 10%;
 
-        &__video {
-            height: 22.7rem;
-            width: 40rem;
-        }
-        &__details {
-            font-size: 1.2rem;
-        }
-    }
-
-    &__search {
-
-        &__input {
+        &__minutes {
             display: inline-block;
+        }
+
+        &__seconds {
+            display: inline-block;
+        }
+    }
+
+    &__options {
+        text-align: center;
+
+        &__start {
             font-size: 2rem;
-            width: 60%;
-        }
-        &__button {
-            margin-left: .5rem;
             display: inline-block;
-        }
-    }
-
-    &__ul {
-        border: 1px solid $color-secondary;
-        overflow-y: scroll;
-        height: 26rem;
-    }
-
-    &__li {
-        border-bottom: 1px solid $color-secondary;
-        padding: 1rem;
-
-        &__thumbnail {
-            width: 15rem;
-            height: 10rem;
-            display: inline-block;
+            padding: .2rem 1rem;
+            margin: .5rem 2rem;
         }
 
-        &__details {
-            margin-left: 1.5rem;
-            width: 50%;
+        &__rest {
+            font-size: 2rem;
             display: inline-block;
-            font-size: 1.4rem;
-            transform: translateY(-35%);
+            padding: .2rem 1rem;
+            margin: .5rem 2rem;
         }
     }
 }
