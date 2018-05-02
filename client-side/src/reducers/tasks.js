@@ -125,8 +125,6 @@ export default function reducer(state = initialState, action) {
             currentTab: action.tab
         })
     }
-    
-    console.log(state.currentTab)
 
     return state;
 }

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import YoutubeApp from './index';
 import Draggable from 'react-draggable';
 import {toggleYoutube} from '../../../actions/widgets';
+
 export class Youtube extends Component {
 
     render() {

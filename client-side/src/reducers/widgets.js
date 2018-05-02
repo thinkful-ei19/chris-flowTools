@@ -1,4 +1,4 @@
-import { TOGGLE_YOUTUBE, MINIMIZE_YOUTUBE } from "../actions/widgets";
+import { TOGGLE_YOUTUBE, MINIMIZE_YOUTUBE, TOGGLE_POMODORO, MINIMIZE_POMODORO } from "../actions/widgets";
 
 
 const initialState = {
@@ -51,7 +51,42 @@ export default function reducer(state = initialState, action) {
                 }
             })
         }
+    } else if (action.type === TOGGLE_POMODORO) {
+
+        if (state.pomodoro.on === true) {
+            return Object.assign({}, state, {
+                pomodoro: {
+                    on: false,
+                    minimized: state.pomodoro.minimized
+                }
+            })
+        } else {
+            return Object.assign({}, state, {
+                pomodoro: {
+                    on: true,
+                    minimized: state.pomodoro.minimized
+                }
+            })
+        }
+    } else if (action.type === MINIMIZE_POMODORO) {
+        if (state.pomodoro.minimized === true) {
+            return Object.assign({}, state, {
+                pomodoro: {
+                    on: state.pomodoro.on,
+                    minimized: false
+                }
+            })
+        } else {
+            return Object.assign({}, state, {
+                pomodoro: {
+                    on: state.pomodoro.on,
+                    minimized: true
+                }
+            })
+        }
     }
+
+    console.log(state);
 
     return state;
 }

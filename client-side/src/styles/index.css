@@ -719,3 +719,67 @@ button {
       display: inline-block;
       font-size: 1.4rem;
       transform: translateY(-35%); }
+
+.pomodoro {
+  max-width: 42.7rem;
+  position: fixed;
+  z-index: 20; }
+  .pomodoro__handle {
+    cursor: grab;
+    padding: .5rem 2rem;
+    border: 2px solid #A5A5AF;
+    background-color: #015249;
+    color: #fff; }
+    .pomodoro__handle:active {
+      cursor: grabbing; }
+  .pomodoro__header {
+    margin: 0rem; }
+  .pomodoro__minimize, .pomodoro__exit {
+    position: relative;
+    cursor: pointer;
+    float: right;
+    width: 2rem;
+    font-size: 2rem;
+    transform: translate(0, -100%); }
+  .pomodoro__minimize {
+    font-size: 2rem; }
+    .pomodoro__minimize__checkbox {
+      visibility: hidden; }
+      .pomodoro__minimize__checkbox:checked ~ .youtube__main {
+        visibility: hidden; }
+  .pomodoro__main {
+    padding: .5rem;
+    border: 1px solid #A5A5AF;
+    background-image: linear-gradient(to bottom right, rgba(87, 188, 144, 0.9), rgba(87, 188, 144, 0.9));
+    color: #000;
+    z-index: 9;
+    transform: translate(0, -5%); }
+  .pomodoro__current__video {
+    height: 22.7rem;
+    width: 40rem; }
+  .pomodoro__current__details {
+    font-size: 1.2rem; }
+  .pomodoro__search__input {
+    display: inline-block;
+    font-size: 2rem;
+    width: 60%; }
+  .pomodoro__search__button {
+    margin-left: .5rem;
+    display: inline-block; }
+  .pomodoro__ul {
+    border: 1px solid #015249;
+    overflow-y: scroll;
+    height: 26rem; }
+  .pomodoro__li {
+    border-bottom: 1px solid #015249;
+    padding: 1rem; }
+    .pomodoro__li__thumbnail {
+      width: 15rem;
+      height: 10rem;
+      display: inline-block; }
+    .pomodoro__li__details {
+      margin-left: 1.5rem;
+      width: 50%;
+      display: inline-block;
+      font-size: 1.4rem;
+      transform: translateY(-35%); }

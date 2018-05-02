@@ -12,13 +12,21 @@ import Footer from './components/footer';
 import Tasks from './components/tasks';
 import Settings from './components/settings';
 import Youtube from './components/windows/youtube/youtube-draggable';
+import Pomodoro from './components/windows/pomodoro/pomodoro-draggable';
 
 export class App extends Component {
 
   render() {
-    let baseJSX = []
+    let baseJSX = [];
+    let youtube;
+    let pomodoro;
     if (this.props.youtube.on) {
-        baseJSX.push(<div key={0} className="youtube"><Youtube/></div>)
+        // baseJSX.push(<div key={0} className="youtube"><Youtube/></div>)
+        youtube = (<div key={0} className="youtube"><Youtube/></div>)
+    }
+    if (this.props.pomodoro.on) {
+      // baseJSX.push(<div key={1} className="pomodoro"><Pomodoro/></div>)
+      pomodoro = (<div key={1} className="pomodoro"><Pomodoro/></div>)
     }
 
     baseJSX.push(
@@ -37,6 +45,8 @@ export class App extends Component {
 
     return (
       <div>
+      {youtube}
+      {pomodoro}
       {baseJSX}
       </div>
     );
@@ -44,10 +54,14 @@ export class App extends Component {
 }
 const mapStateToProps = state => {
   return {
+    currentTab: state.tasks.currentTab,
     youtube: {
       on: state.widgets.youtube.on,
       minimized: state.widgets.youtube.minimized,
-      currentTab: state.tasks.currentTab
+    },
+    pomodoro: {
+      on: state.widgets.pomodoro.on,
+      minimized: state.widgets.pomodoro.minimized,
     }
   }
 }

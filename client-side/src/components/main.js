@@ -26,7 +26,6 @@ export class Main extends React.Component {
     }
 
     render() {
-        console.log(this.props.currentTab)
         let currentMonth = this.props.selectedMonth;
         let currentYear = this.props.selectedYear;
         const bindThis = this;
