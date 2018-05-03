@@ -87,82 +87,82 @@ button {
   color: #000; }
 
 .landing-page {
-  overflow-x: hidden; }
-  @media (max-width: 85.375em) {
-    .landing-page {
-      padding: 0; } }
-  .landing-page__div-first {
-    width: 100%;
-    height: 40.5vh; }
-  .landing-page__image {
-    position: absolute;
-    width: 100%;
-    height: 90.9vh;
-    background-image: url(https://images.pexels.com/photos/4159/coffee-cup-mug-apple.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
-    background-size: cover;
-    z-index: 0;
-    transform: translate(0%, -55.4%);
-    opacity: .6; }
-    @media (max-width: 40em) {
-      .landing-page__image {
-        transform: translate(-20%, -55.4%);
-        width: 125%; } }
-  .landing-page__header {
-    color: #042210;
-    transform: translate(0%, 40%);
-    font-size: 5rem;
-    padding: 0 10rem;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)); }
-    @media (max-width: 40em) {
-      .landing-page__header {
-        transform: translate(0%, 40%);
-        font-size: 4rem; } }
-  .landing-page__div-second {
-    background-image: linear-gradient(to bottom, rgba(119, 201, 212, 0.2), rgba(119, 201, 212, 0.2));
-    color: #333; }
-  .landing-page__div-third {
-    color: #015249;
-    padding: 0rem 1rem;
-    background-image: linear-gradient(to bottom, rgba(87, 188, 144, 0.4), rgba(1, 82, 73, 0.4)); }
-  .landing-page__secondary-header {
-    font-size: 5rem;
-    margin: 0 3rem; }
-  .landing-page__paragraph {
-    margin: 0 5rem;
-    font-size: 3rem; }
-  .landing-page__about {
-    list-style: none;
-    font-weight: bold;
+  max-height: 87.5vh;
+  background-image: linear-gradient(to bottom, rgba(1, 82, 73, 0.3), rgba(255, 255, 255, 0.3)); }
+  .landing-page__main {
+    display: flex;
+    margin: 0 auto -1rem auto;
+    width: 70%; }
+    .landing-page__main__image {
+      border: 1px solid #333;
+      width: 70vw;
+      height: 70vh;
+      z-index: -10; }
+      @media (orientation: portrait) {
+        .landing-page__main__image {
+          width: 70vw;
+          height: 35vw; } }
+    .landing-page__main__header {
+      position: absolute;
+      width: 70%;
+      top: 65rem;
+      color: #042210;
+      transform: translate(0%, 0%);
+      font-size: 5rem;
+      padding: 0 10rem;
+      background-image: linear-gradient(to bottom, rgba(119, 201, 212, 0.5), rgba(255, 255, 255, 0.5)); }
+      @media (orientation: portrait) {
+        .landing-page__main__header {
+          position: relative;
+          top: -1rem;
+          width: 100%;
+          font-size: 2.5rem; } }
+  .landing-page__tabs {
+    background-image: linear-gradient(to bottom, rgba(87, 188, 144, 0.7), rgba(1, 82, 73, 0.5));
+    height: 17.7vh;
+    color: #000; }
+    .landing-page__tabs__ul {
+      padding: 1.5rem 10%;
+      display: flex;
+      justify-content: space-between;
+      list-style: none; }
+    .landing-page__tabs__li {
+      padding: 1rem 1rem 1rem 1rem;
+      background-image: linear-gradient(to bottom, rgba(87, 188, 144, 0.7), rgba(1, 82, 73, 0.6));
+      border-radius: 1rem;
+      width: 20%;
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      transition: .1s ease-in; }
+      @media (max-width: 40em) {
+        .landing-page__tabs__li {
+          padding: 1rem; } }
+      .landing-page__tabs__li:hover {
+        background-image: linear-gradient(to bottom, rgba(87, 188, 144, 0.9), rgba(1, 82, 73, 0.7));
+        transform: scale(1.05); }
+      .landing-page__tabs__li__image {
+        display: block; }
+      .landing-page__tabs__li__text {
+        font-weight: bold;
+        color: #fff;
+        display: block; }
+        @media (max-width: 40em) {
+          .landing-page__tabs__li__text {
+            visibility: hidden;
+            height: 0; } }
+
+.signup-now {
+  background-image: linear-gradient(to right, #57bc90 0.2, #015249);
+  min-height: 6.25vh;
+  max-height: 10.25vh;
+  padding: 1rem 0 0rem 3rem;
+  border-top: 1px solid grey; }
+  .signup-now__message {
     font-size: 3rem;
-    padding: 1rem 0rem; }
-    .landing-page__about__message {
-      text-decoration: underline; }
-    .landing-page__about__li {
-      font-size: 2rem;
-      display: inline-block;
-      margin: 0 1%;
-      padding: 1rem;
-      max-width: 31%; }
-      @media (max-width: 60em) {
-        .landing-page__about__li {
-          display: block;
-          max-width: 100%; } }
-      .landing-page__about__li__paragraph {
-        display: block;
-        font-size: 3rem; }
-      .landing-page__about__li__image {
-        display: block;
-        margin: 0 auto;
-        width: 40rem; }
-  .landing-page__div-fourth {
-    padding: 0 10rem;
-    background-image: linear-gradient(to top, rgba(1, 82, 73, 0.4), rgba(119, 201, 212, 0.4));
-    width: 100%;
-    color: #015249; }
-    .landing-page__div-fourth__paragraph {
-      font-size: 3rem; }
-  .landing-page__list-item {
-    margin-left: 5rem; }
+    display: inline-block;
+    margin-right: 4rem;
+    color: #333; }
 
 .login {
   padding: 2rem;
