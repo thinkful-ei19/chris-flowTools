@@ -48,6 +48,12 @@ export class LandingPage extends React.Component {
 
         let tab;
 
+        if (this.state.currentTab < 0) {
+            this.setState({currentTab: 4})
+        } else if (this.state.currentTab > 4) {
+            this.setState({currentTab: 0});
+        }
+
         if (this.state.currentTab === 0) {
             tab = (
                 <div>
@@ -89,33 +95,33 @@ export class LandingPage extends React.Component {
             <div>
                 <div className="landing-page">
                     <div className="landing-page__main">
-                        {/* <button className="landing-page__main__left-button">&#8592;</button> */}
+                        {/* <a onClick={() => this.setState({currentTab: this.state.currentTab - 1, clicked: true})}  className="landing-page__main__left-button">&#8592;</a> */}
                         {tab}
-                        {/* <button className="landing-page__main__right-button">&#8594;</button> */}
+                        {/* <a onClick={() => this.setState({currentTab: this.state.currentTab + 1, clicked: true})} className="landing-page__main__right-button">&#8594;</a> */}
                     </div>
                     <div className="landing-page__tabs">
                         <ul className="landing-page__tabs__ul">
                             <li onClick={() => this.setState({currentTab: 1, clicked: true})} className="landing-page__tabs__li">
                                 <a className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgCalendar} className="" alt="Calendar"></img>
+                                    <img className="landing-page__tabs__li__image" src={svgCalendar} alt="Calendar"></img>
                                     <span className="landing-page__tabs__li__text">Intuitively Simple Calendars</span>
                                 </a>
                             </li>
                             <li onClick={() => this.setState({currentTab: 2, clicked: true})} className="landing-page__tabs__li">
                                 <a  className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgFiletext} className="" alt="Calendar"></img>
+                                    <img className="landing-page__tabs__li__image" src={svgFiletext} alt="Calendar"></img>
                                     <span className="landing-page__tabs__li__text">Fast-tracked Planning</span>
                                 </a>
                             </li>
                             <li onClick={() => this.setState({currentTab: 3, clicked: true})} className="landing-page__tabs__li">
                                 <a  className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgAlarm} className="" alt="Calendar"></img>
+                                    <img className="landing-page__tabs__li__image" src={svgAlarm} alt="Calendar"></img>
                                     <span className="landing-page__tabs__li__text">Responsive Notifications</span>
                                 </a>
                             </li>
                             <li onClick={() => this.setState({currentTab: 4, clicked: true})} className="landing-page__tabs__li">
                                 <a className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgMusic} className="" alt="Calendar"></img>
+                                    <img className="landing-page__tabs__li__image" src={svgMusic} alt="Calendar"></img>
                                     <span className="landing-page__tabs__li__text">Excitingly Productive Widgets</span>
                                 </a>
                             </li>
@@ -123,7 +129,7 @@ export class LandingPage extends React.Component {
                     </div>
                 </div>
                 <div className="signup-now">
-                    <p className="signup-now__message">Sign up now! <a href="/login">Create a new account</a></p>
+                    <p className="signup-now__message">Sign up now! <a href="/signup">Create a new account</a></p>
                 </div>
             </div>
             )

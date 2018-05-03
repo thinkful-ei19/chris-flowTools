@@ -31,7 +31,6 @@ export const clearAuth = () => ({
     type: CLEAR_AUTH
 });
 
-
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
@@ -82,7 +81,7 @@ export const login = (username, password) => dispatch => {
     )
 }
 
-export const signUp = (username, password) => {
+export const signUp = (username, password) => dispatch => {
     return (
         //Grab authToken
         fetch(`${API_BASE_URL}/signup`, {
@@ -101,7 +100,7 @@ export const signUp = (username, password) => {
                 alert(res.message)
             }
             else if (res[0].id) {
-                alert('Account Created, proceed to the login screen to login.')
+                dispatch(login(res[0].username, password))
             }
         })
         .catch((err) => alert(err))

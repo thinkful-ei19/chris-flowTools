@@ -50,6 +50,6 @@ const mapStateToProps = state => ({
 })
 
 export default reduxForm({
-    form: 'login',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+    form: 'signup',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('signup', 'username'))
 })(connect(mapStateToProps)(SignupForm));

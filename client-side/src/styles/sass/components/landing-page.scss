@@ -35,8 +35,80 @@
                 width: 100%;
                 font-size: 2.5rem;
             }
+
+            @include respond(tab-land) {
+                @media (orientation: landscape) {
+                    top: 55rem;
+                }
+            }
+
+            @include respond(phone) {
+                @media (orientation: landscape) {
+                    top: 27.5rem;
+                    font-size: 4rem;
+                }
+            }
         }
 
+        &__left-button {
+            cursor: pointer;
+            position: relative;
+            top: 25rem;
+            font-size: 3rem;
+            height: 5rem;
+            width: 5rem;
+            padding: 0 1rem;
+            margin-right: 2.5rem;
+
+            border: none;
+            background-image: linear-gradient(to bottom, rgba($color-primary, .7), rgba($color-secondary, .5));
+            color: $color-white;
+            border-radius: 2rem;
+
+            transition: .1s ease-in;
+
+            @media (orientation: portrait) {
+                top: 15rem;
+            }
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgba($color-primary, .9), rgba($color-secondary, .7));
+                transform: scale(1.05);
+            }
+
+            &:active {
+                transform: scale(1);
+            }
+        }
+
+        &__right-button {
+            cursor: pointer;
+            position: relative;
+            top: 25rem;
+            font-size: 3rem;
+            height: 5rem;
+            width: 5rem;
+            padding: 0 1rem;
+            margin-left: 2.5rem;
+
+            border: none;
+            background-image: linear-gradient(to bottom, rgba($color-primary, .7), rgba($color-secondary, .5));
+            color: $color-white;
+            border-radius: 2rem;
+
+            @media (orientation: portrait) {
+                top: 15rem;
+            }
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgba($color-primary, .9), rgba($color-secondary, .7));
+                transform: scale(1.05);
+            }
+
+            &:active {
+                transform: scale(1);
+            }
+        }
     }
 
     &__tabs {
@@ -52,6 +124,7 @@
         }
 
         &__li {
+            display: inline-block;
             padding: 1rem 1rem 1rem 1rem;
             background-image: linear-gradient(to bottom, rgba($color-primary, .7), rgba($color-secondary, .6));
             border-radius: 1rem;
@@ -63,7 +136,6 @@
 
             @include respond(phone) {
                 padding: 1rem;
-                
             }
 
             &:hover {
@@ -71,8 +143,12 @@
                 transform: scale(1.05);
             }
 
+            &:active {
+                transform: scale(1);
+            }
+
             &__image {
-                display: block;
+                display: inline-block;
             }
 
             &__text {
