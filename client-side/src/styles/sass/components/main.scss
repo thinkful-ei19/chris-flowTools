@@ -54,7 +54,7 @@
         border-radius: 35%;
 
         @include respond(tab-port) {
-            top: 13.5rem;
+            top: 7rem;
             font-size: 3rem;
         }
         
@@ -68,7 +68,7 @@
         @include respond(phone) {
             left: 15%;
             font-size: 2.5rem;
-            top: 9%;
+            top: 5.5rem;
         }
     }
 
@@ -81,7 +81,7 @@
         border-radius: 35%;
         
         @include respond(tab-port) {
-            top: 13.5rem;
+            top: 7rem;
             font-size: 3rem;
         }
 
@@ -93,10 +93,11 @@
             left: 68.5%;
         }
 
+
         @include respond(phone) {
             font-size: 2.5rem;
             left: 80%;
-            top: 9%;
+            top: 5.5rem;
         }
     }
 
@@ -113,7 +114,7 @@
         }
 
         @media (orientation: landscape) and (max-width: 570px) {
-            transform: translateX(-5%);
+            transform: translateX(-10%);
         }
 
         &__days {

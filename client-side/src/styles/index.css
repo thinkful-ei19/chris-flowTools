@@ -465,7 +465,7 @@ button {
     border-radius: 35%; }
     @media (max-width: 60em) {
       .main__previous {
-        top: 13.5rem;
+        top: 7rem;
         font-size: 3rem; } }
     @media (max-width: 830px) and (orientation: landscape) {
       .main__previous {
@@ -477,7 +477,7 @@ button {
       .main__previous {
         left: 15%;
         font-size: 2.5rem;
-        top: 9%; } }
+        top: 5.5rem; } }
   .main__next {
     position: absolute;
     top: 7%;
@@ -487,7 +487,7 @@ button {
     border-radius: 35%; }
     @media (max-width: 60em) {
       .main__next {
-        top: 13.5rem;
+        top: 7rem;
         font-size: 3rem; } }
     @media (max-width: 830px) and (orientation: landscape) {
       .main__next {
@@ -499,7 +499,7 @@ button {
       .main__next {
         font-size: 2.5rem;
         left: 80%;
-        top: 9%; } }
+        top: 5.5rem; } }
   @media (max-width: 85.375em) {
     .main__calendar {
       width: 100vw;
@@ -510,7 +510,7 @@ button {
       transform: translateX(-10%); } }
   @media (orientation: landscape) and (max-width: 570px) {
     .main__calendar {
-      transform: translateX(-5%); } }
+      transform: translateX(-10%); } }
   .main__calendar__days {
     font-size: 2.5rem; }
     @media (max-width: 60em) {
@@ -824,6 +824,9 @@ button {
       font-size: 2rem;
       margin: 1rem 0 0 0;
       padding: .5rem 1rem; }
+
+.settings__password__form .form-input input {
+  width: 100%; }
 
 .youtube {
   min-width: 42.7rem;

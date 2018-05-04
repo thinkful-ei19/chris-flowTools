@@ -36,6 +36,7 @@ class PasswordChange extends React.Component {
                     />
                     <label htmlFor="repeatNewPassword">Repeat New Password</label>
                     <Field
+                        className="settings__password__input"
                         placeholderText={this.props.placeholder}
                         autoFocus={false}
                         component={Input}

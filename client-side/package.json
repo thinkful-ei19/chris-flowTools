@@ -2,7 +2,7 @@
   "name": "client-side",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080/",
+  "proxy": "https://flow-tools-server.herokuapp.com",
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
