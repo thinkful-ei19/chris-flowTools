@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {toggleYoutube, togglePomodoro} from '../actions/widgets';
+import {login} from '../actions/auth';
 
 export class Footer extends React.Component {
 
@@ -12,6 +13,9 @@ export class Footer extends React.Component {
         }
         function dispatchTogglePomodoro() {
             return bindThis.props.dispatch(togglePomodoro());
+        }
+        function loginDemo() {
+            return bindThis.props.dispatch(login("test", "test"))
         }
 
         if (this.props.loggedIn) {
@@ -27,7 +31,6 @@ export class Footer extends React.Component {
         } else {
             return (
                 <div className="footer">
-
                 </div>
             )
         }

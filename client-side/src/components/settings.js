@@ -21,7 +21,8 @@ export function Login (props) {
                     <h3 className="settings__password__header">
                         Change Password
                     </h3>
-                    <PasswordChange />
+                    {/* <PasswordChange /> */}
+                    Password Change is currently disabled due to demo account(s) currently in use.
                 </div>
             </div>
         )

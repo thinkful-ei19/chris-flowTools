@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
-import {signUp} from '../actions/auth'
+import {signUp, login} from '../actions/auth'
 
 class SignupForm extends React.Component {
 
@@ -11,6 +11,11 @@ class SignupForm extends React.Component {
     }
 
     render() {
+
+        let bindThis = this;
+        function loginDemo() {
+            return bindThis.props.dispatch(login("test", "test"))
+        }
 
         return (
                 <form className="signup__form"
@@ -40,6 +45,7 @@ class SignupForm extends React.Component {
                     </button>
                     <a href="/login"
                     className="signup__login" >Return to Login</a>
+                    <a href="#" onClick={loginDemo} className="free-demo">Log in with demo account</a>
                 </form>
         )
     }

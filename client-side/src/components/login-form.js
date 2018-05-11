@@ -12,6 +12,11 @@ class LoginForm extends React.Component {
 
     render() {
 
+        let bindThis = this;
+        function loginDemo() {
+            return bindThis.props.dispatch(login("test", "test"))
+        }
+
         return (
                 <form className="login__form"
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
@@ -40,6 +45,7 @@ class LoginForm extends React.Component {
                     </button>
                     <a href="/signup"
                     className="login__signup" >Sign up</a>
+                    <a href="#" onClick={loginDemo} className="free-demo">Log in with demo account</a>
                 </form>
         )
     }

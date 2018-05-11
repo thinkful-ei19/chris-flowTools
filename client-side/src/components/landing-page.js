@@ -129,7 +129,7 @@ export class LandingPage extends React.Component {
                     </div>
                 </div>
                 <div className="signup-now">
-                    <p className="signup-now__message">Sign up now! <a href="/signup">Create a new account</a></p>
+                    <p className="signup-now__message">Sign up now or try a free demo! <a href="/signup">Proceed to Signup page</a></p>
                 </div>
             </div>
             )
