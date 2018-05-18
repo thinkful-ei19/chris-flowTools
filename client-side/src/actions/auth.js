@@ -31,6 +31,11 @@ export const clearAuth = () => ({
     type: CLEAR_AUTH
 });
 
+export const INCORRECT_LOGIN = 'INCORRECT_LOGIN';
+export const incorrectLogin = () => ({
+    type: INCORRECT_LOGIN
+})
+
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
@@ -57,10 +62,6 @@ export const login = (username, password) => dispatch => {
             authTokenSave = authToken;
             return storeAuthInfo(authToken, dispatch)
         })
-        .catch(err => {
-            dispatch(authError(err));
-            dispatch(clearAuth());
-        })
         //Get the user ID
         .then(() => {
             fetch(`${API_BASE_URL}/api/users`, {
@@ -76,8 +77,19 @@ export const login = (username, password) => dispatch => {
                     dispatch(saveUserId(user.id));
                 }
             }))
+            .catch((err) => {
+                alert(err.message)
+            })
+            return false;
         })
-        .catch((err) => alert(err))
+        .catch((err) => {            
+            if (err.message === 'Unauthorized') {
+                alert('Incorrect username/password')
+                dispatch(incorrectLogin())
+            } else {
+                alert(err.message)
+            }
+        })
     )
 }
 

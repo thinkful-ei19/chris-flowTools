@@ -10,15 +10,14 @@ export function Login (props) {
     }
 
     return (
-            <div className="login">
-                <LoginForm />
-            </div>
-        )
-
+        <div className="login">
+            <LoginForm />
+        </div>
+    )
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.userId !== null
+    loggedIn: state.auth.userId !== null,
 })
 
 export default (connect(mapStateToProps)(Login))
