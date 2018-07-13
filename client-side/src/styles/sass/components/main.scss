@@ -1,17 +1,15 @@
 .main {
     text-align: center;
-    height: 90vh;
-    background-image: linear-gradient(to right, rgba($color-primary, 0.2), rgba($color-secondary, 0.3));
+    height: 93vh;
     
-
     @include respond(phone) {
-        height: 100vh;
+        height: 85vh;
     }
 
     @media (orientation: portrait) {
         overflow-y: hidden;
+        margin-top: 10rem;
     }
-    
 
     &__toggleWeekly {
         cursor: pointer;
@@ -50,8 +48,6 @@
         top: 7%;
         left: 45%;
         font-size: 4rem;
-        background-color: $color-fourth;
-        border-radius: 35%;
 
         @include respond(tab-port) {
             top: 7rem;
@@ -65,10 +61,29 @@
         @include respond(tab-land) {
             left: 27.5%;
         }
+
         @include respond(phone) {
             left: 15%;
             font-size: 2.5rem;
             top: 5.5rem;
+        }
+
+        &__button {
+            width: 70%;
+
+            @media (orientation: portrait) {
+                margin-top: 10rem;
+            }
+        
+            @include respond(phone) {
+                width: 50%;
+            }
+
+            &:hover {
+                cursor: pointer;
+                transition: .2s;
+                transform: scale(1.1)
+            }
         }
     }
 
@@ -77,9 +92,11 @@
         top: 7%;
         left: 72%;
         font-size: 4rem;
-        background-color: $color-fourth;
-        border-radius: 35%;
         
+        @include respond(tab-land) {
+            left: 68.5%;
+        }
+
         @include respond(tab-port) {
             top: 7rem;
             font-size: 3rem;
@@ -89,15 +106,29 @@
             top: 6rem;
         }
 
-        @include respond(tab-land) {
-            left: 68.5%;
-        }
-
 
         @include respond(phone) {
             font-size: 2.5rem;
-            left: 80%;
+            left: 70%;
             top: 5.5rem;
+        }
+
+        &__button {
+            width: 70%;
+                        
+            @media (orientation: portrait) {
+                margin-top: 10rem;
+            }
+
+            @include respond(phone) {
+                width: 50%;
+            }
+
+            &:hover {
+                cursor: pointer;
+                transition: .2s;
+                transform: scale(1.1)
+            }
         }
     }
 
@@ -108,6 +139,10 @@
             transform: translateX(-10%);
         }
 
+        @include respond(tab-port) {
+            margin-top: 10rem;
+        }
+
         @include respond(phone) {
             width: 100vw;
             transform: translateX(-10%);
@@ -115,6 +150,9 @@
 
         @media (orientation: landscape) and (max-width: 570px) {
             transform: translateX(-10%);
+        }
+        @media (orientation: landscape) {
+            margin-top: 1rem;        
         }
 
         &__days {
@@ -138,7 +176,8 @@
             display: inline-block;
             padding: 3rem;
             font-size: 4rem;
-            border: 1px solid $color-grey-dark;
+            color: #444;
+            border: 1px solid #ccc;
 
             @include respond(tab-port) {
                 font-size: 1.35rem;
@@ -153,10 +192,7 @@
             }
     
             &:hover {
-                background-color: $color-third;
-                transform: scale(1.05);
-                z-index: 1;
-                transition: .1s;
+                border: 1px solid black;
             }
         }
     }

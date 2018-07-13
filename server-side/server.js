@@ -44,6 +44,9 @@ app.use(function (req, res, next) {
 
 // Routers
 app.use('/', loginRouter);
+app.use('/wake-up', (req, res, next) => {
+    res.json('Server side is awake')
+})
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);

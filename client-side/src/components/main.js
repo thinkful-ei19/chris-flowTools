@@ -5,10 +5,13 @@ import moment from 'moment';
 import {fetchProtectedData} from '../actions/users';
 import requiresLogin from './requires-login';
 import {Redirect} from 'react-router-dom';
-import {changeTab, selectMonth, selectYear} from '../actions/tasks'
+import {changeTab, selectMonth, selectYear} from '../actions/tasks';
 
 import DaysRow from './daysRow';
 import DateRows from './dateRows';
+
+import backArrow from '../styles/images/PNG/002-back.png';
+import nextArrow from '../styles/images/PNG/001-next.png';
 
 export class Main extends React.Component {
     constructor(props) {
@@ -73,9 +76,9 @@ export class Main extends React.Component {
                     <Notifications />
                     <div className="main__right">
                     <a onClick={redirectToWeekly} className="main__toggleWeekly" >Toggle Weekly View</a>
-                        <button onClick={decrement} className="main__previous">&#8592;</button>
+                        <a className="main__previous"><img onClick={decrement} className="main__previous__button" src={backArrow}/></a>
                         <h2 className="main__month">{monthYear}</h2>
-                        <button onClick={increment} className="main__next">&#8594;</button>
+                        <a className="main__next"><img onClick={increment} className="main__next__button" src={nextArrow}/></a>
                         <div className="main__calendar">
                             <DaysRow />
                             <DateRows />

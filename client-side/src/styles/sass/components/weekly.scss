@@ -27,6 +27,24 @@
         font-size: 4rem;
         background-color: $color-fourth;
         border-radius: 35%;
+
+        &__button {
+            width: 70%;
+                        
+            @media (orientation: portrait) {
+                margin-top: 10rem;
+            }
+
+            @include respond(phone) {
+                width: 50%;
+            }
+
+            &:hover {
+                cursor: pointer;
+                transition: .2s;
+                transform: scale(1.1)
+            }
+        }
     }
 
     &__next {
@@ -36,6 +54,24 @@
         font-size: 4rem;
         background-color: $color-fourth;
         border-radius: 35%;
+
+        &__button {
+            width: 70%;
+                        
+            @media (orientation: portrait) {
+                margin-top: 10rem;
+            }
+
+            @include respond(phone) {
+                width: 50%;
+            }
+
+            &:hover {
+                cursor: pointer;
+                transition: .2s;
+                transform: scale(1.1)
+            }
+        }
     }
 
     &__ul {
@@ -45,7 +81,6 @@
     }
 
     &__li {
-        border: 1px solid black;
         vertical-align: top;
         height: 77.5vh;
         padding: 2rem;

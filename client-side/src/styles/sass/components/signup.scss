@@ -1,7 +1,7 @@
 .signup {
     padding: 2rem;
     font-size: 4rem;
-    height: 90vh;
+    height: 94vh;
     background-image: linear-gradient(to right, rgba($color-primary, .3), rgba($color-secondary, .3));
 
     &__form {
@@ -35,6 +35,7 @@
         font-size: 2.5rem;
         margin-left: 5rem;
         padding: .5rem 1rem;
+        display: block;
 
         &:hover {
             color: $color-fourth;

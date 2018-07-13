@@ -8,6 +8,9 @@ import {getTasks, selectWeek, selectNote, postNewTask, deleteTask, updateTask, u
 
 import DaysRow from './daysRow-Weekly';
 
+import backArrow from '../styles/images/PNG/002-back.png';
+import nextArrow from '../styles/images/PNG/001-next.png';
+
 export class WeeklyView extends React.Component {
     constructor(props) {
         super(props)
@@ -208,9 +211,9 @@ export class WeeklyView extends React.Component {
         return (
             <div onClick={unselect} className="weekly">
                 <a className="weekly__toggleMonthly" onClick={redirectToMonthly}>Return to Monthly View</a>
-                <button onClick={decrementWeek} className="weekly__previous">&#8592;</button>
+                <a onClick={decrementWeek} className="weekly__previous"><img className="weekly__previous__button" src={backArrow}/></a>
                         <h2 className="weekly__month">{monthYear}</h2>
-                        <button onClick={incrementWeek} className="weekly__next">&#8594;</button>
+                        <a onClick={incrementWeek} className="weekly__next"><img className="weekly__next__button" src={nextArrow}/></a>
                 <ul className="weekly__ul" >
                     <DaysRow />
                     {buildJSX}

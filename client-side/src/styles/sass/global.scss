@@ -27,9 +27,10 @@ html {
 body {
     box-sizing: border-box;
     padding: 0rem;
+    background-image: linear-gradient(to right, rgba($color-secondary, 0.1), rgba($color-secondary, 0.1));
 
     //App-specific Default Settings
-    font-family: "Lato", sans-serif;
+    font-family: 'Asap', sans-serif;
     font-weight: 400;
     font-size: $default-font-size;
     line-height: 1.7;

@@ -2,6 +2,10 @@
     height: 90vh;
     background-image: linear-gradient(to bottom left, rgba($color-primary, 0.5), rgba($color-secondary, 0.5));
 
+    @include respond(phone) {
+        height: 95vh;
+    }
+
     &__day {
         margin: 0 0 0 5rem;
         font-size: 5rem;

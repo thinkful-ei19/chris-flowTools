@@ -1,52 +1,51 @@
 .other-month-day {
     opacity: .8;
-    background-image: linear-gradient(to right, rgba($color-grey-dark, .35));
+    // background-image: linear-gradient(to right, rgba($color-grey-dark, .35));
+    color: #999 !important;
+    font-style: italic;
 }
 
 .overdue-task {
     opacity: .8;
-    background-image: linear-gradient(to right, rgba(red, .35));
+    background-image: linear-gradient(to right, rgba(red, .2));
 
     &:hover {
         backface-visibility: hidden;
-        background-color: red;
     }
 }
 
 .overdue-tasks {
     opacity: .8;
-    background-image: linear-gradient(to right, rgba(red, .35));
+    color: red !important;
 }
 
 .due-tasks {
     opacity: .8;
-    background-image: linear-gradient(to right, rgba(blue, .35));
+    color: blue !important;
 }
 
 .finished-tasks {
     opacity: .8;
-    background-image: linear-gradient(to right, rgba(green, .35));
+    color: green !important;
 }
 
 .current-day-tasks {
     opacity: .8;
-    background-image: linear-gradient(to right, rgba(yellow, .35));
     font-weight: bold;
     text-decoration: underline;
-    color: $color-black;
+    color: orange !important;
 }
 
 .current-day-finished {
     opacity: .8;
-    background-image: linear-gradient(to right, rgba(skyblue, 1));
     font-weight: bold;
     text-decoration: underline;
-    color: $color-black;
+    color: green !important;
 }
 
 .current-day {
     opacity: .8;
     font-weight: bold;
     text-decoration: underline;
-    color: $color-black;
+    color: $color-black !important;
 }

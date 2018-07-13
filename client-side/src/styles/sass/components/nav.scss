@@ -1,10 +1,9 @@
 .nav {
     width: 100%;
-    min-height: 6.25vh;
-    max-height: 6.25vh;
+    height: 6vh;
     padding: 1rem 0 0rem 3rem;
     border-bottom: 1px solid grey;
-    background-image: linear-gradient(to right, rgba($color-primary, 1) .2, rgba($color-secondary, 1));
+    background-image: linear-gradient(to right, rgba($color-secondary, 1) .2, rgba($color-secondary, 1));
     z-index: 10;
     position: relative;
 
@@ -24,17 +23,18 @@
     }
 
     &__h1 {
+        font-family: 'Fugaz One', cursive;
         font-size: 3rem;
         display: inline-block;
         margin-right: 4rem;
-        color: $color-grey-dark-3;
+        color: #eee;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         @include respond(phone) {
             font-size: 2rem;
-        }
-
-        &:hover {
-            color: $color-white;
         }
     }
 
@@ -59,7 +59,7 @@
                 }        
 
                 &:hover {
-                    color: $color-primary;
+                    color: $color-fourth;
                 }
 
                 &:before {
@@ -69,7 +69,7 @@
                     height: 1rem;
                     bottom: 0;
                     left: 0;
-                    background-color: $color-primary;
+                    background-color: $color-fourth;
                     opacity: .3;
                     visibility: hidden;
                     -webkit-transform: scaleX(0);

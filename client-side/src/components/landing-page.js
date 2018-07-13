@@ -1,137 +1,88 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
-import imageNotifications from '../styles/images/notifications.jpg';
-import imageCalendar from '../styles/images/calendar.jpg';
-import imageWidgets from '../styles/images/widgets.jpg';
-import imageTasks from '../styles/images/tasks.jpg';
-import imageHeadWay from '../styles/images/headway.jpg';
+import {API_BASE_URL} from '../config';
+import {login} from '../actions/auth';
+
+import imageOffice from '../styles/images/office.jpg';
 
 import svgCalendar from '../styles/images/SVG/calendar.svg';
 import svgMusic from '../styles/images/SVG/music.svg';
 import svgAlarm from '../styles/images/SVG/alarm.svg';
 import svgFiletext from '../styles/images/SVG/filetext.svg';
 
+import imageCalendar from '../styles/images/calendar.jpg';
+import imageWidgets from '../styles/images/widgets.jpg';
+
 export class LandingPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            currentTab: 0,
-            clicked: false
-        }
-    }
-
-    changeTab() {
-        if (this.state.currentTab < 4) {
-            this.setState({currentTab: this.state.currentTab + 1});
-        } else {
-            this.setState({currentTab: 0});
-        }
-    }
 
     componentWillUnmount() {
         clearInterval(this.interval);
     }
 
+    componentDidMount() {
+        console.log('run');
+        fetch(`${API_BASE_URL}/wake-up`, {
+            method: 'GET', 
+            headers: {
+                'Accept': 'application/json',
+              }
+        })
+        .then(res => console.log('Sent artbitrary get request to heroku server to wake it up...', res)).catch(err => {});        
+    }
+
     render() {
-
+        if (this.props.loggedIn) {
+            return <Redirect to="/calendar" />
+        }
         let bindThis = this;
-        if (this.interval) {
-            clearInterval(this.interval);
-        }
-        if (!this.state.clicked) {
-            this.interval = setInterval(function() {
-                bindThis.changeTab();
-            }, 5000)
-        }
-
-        let tab;
-
-        if (this.state.currentTab < 0) {
-            this.setState({currentTab: 4})
-        } else if (this.state.currentTab > 4) {
-            this.setState({currentTab: 0});
-        }
-
-        if (this.state.currentTab === 0) {
-            tab = (
-                <div>
-                    <img src={imageHeadWay} className="landing-page__main__image landing-page__main__image__0" alt="Computer"></img>
-                    <h2 className="landing-page__main__header">Make productivity simple</h2>
-                </div>
-            )
-        } else if (this.state.currentTab === 1) {
-            tab = (
-                <div>
-                    <img src={imageCalendar} className="landing-page__main__image landing-page__main__image__1" alt="Computer"></img>
-                    <h2 className="landing-page__main__header">Click-and-go Simple Calendars</h2>
-                </div>
-            )
-        } else if (this.state.currentTab === 2) {
-            tab = (
-                <div>
-                    <img src={imageTasks} className="landing-page__main__image landing-page__main__image__2" alt="Computer"></img>
-                    <h2 className="landing-page__main__header">Planning is only a few clicks away</h2>
-                </div>
-            )
-        } else if (this.state.currentTab === 3) {
-            tab = (
-                <div>
-                    <img src={imageNotifications} className="landing-page__main__image landing-page__main__image__3" alt="Computer"></img>
-                    <h2 className="landing-page__main__header">Never forget anything anymore</h2>
-                </div>
-            )
-        } else if (this.state.currentTab === 4) {
-            tab = (
-                <div>
-                    <img src={imageWidgets} className="landing-page__main__image landing-page__main__image__4" alt="Computer"></img>
-                    <h2 className="landing-page__main__header">Productivity should be enjoyable</h2>
-                </div>
-            )
+        function loginDemo() {
+            return bindThis.props.dispatch(login("test", "test"))
         }
 
         return (
-            <div>
-                <div className="landing-page">
-                    <div className="landing-page__main">
-                        {/* <a onClick={() => this.setState({currentTab: this.state.currentTab - 1, clicked: true})}  className="landing-page__main__left-button">&#8592;</a> */}
-                        {tab}
-                        {/* <a onClick={() => this.setState({currentTab: this.state.currentTab + 1, clicked: true})} className="landing-page__main__right-button">&#8594;</a> */}
+            <section className="landing-page">
+                <div className="landing-page__cover">
+                    <div className="landing-page__cover__overlay"></div>
+                    <h2 className="landing-page__cover__header">Make your computer using experience as productive as possible!</h2>
+                    <img className="landing-page__cover__image" src={imageOffice}/>
+                </div>
+                <div className="landing-page__about">
+                    <div className="landing-page__about__first">
+                        <div className="landing-page__about__first__left">
+                            <h3 className="landing-page__about__first__header">Intuitive Planning</h3>
+                            <p className="landing-page__about__first__description">
+                            Flow Tools offers a custom-built calendar specifically for tracking daily tasks!
+                            Numbers are color-coded based off their due status. Included with the calendar is
+                            a task tracker which shows both overdue tasks in red as well as tasks due on the current day.
+                            </p>
+                        </div>
+                        <div className="landing-page__about__first__right">
+                            <img src={imageCalendar} className="landing-page__about__first__image" />
+                        </div>
                     </div>
-                    <div className="landing-page__tabs">
-                        <ul className="landing-page__tabs__ul">
-                            <li onClick={() => this.setState({currentTab: 1, clicked: true})} className="landing-page__tabs__li">
-                                <a className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgCalendar} alt="Calendar"></img>
-                                    <span className="landing-page__tabs__li__text">Intuitively Simple Calendars</span>
-                                </a>
-                            </li>
-                            <li onClick={() => this.setState({currentTab: 2, clicked: true})} className="landing-page__tabs__li">
-                                <a  className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgFiletext} alt="Calendar"></img>
-                                    <span className="landing-page__tabs__li__text">Fast-tracked Planning</span>
-                                </a>
-                            </li>
-                            <li onClick={() => this.setState({currentTab: 3, clicked: true})} className="landing-page__tabs__li">
-                                <a  className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgAlarm} alt="Calendar"></img>
-                                    <span className="landing-page__tabs__li__text">Responsive Notifications</span>
-                                </a>
-                            </li>
-                            <li onClick={() => this.setState({currentTab: 4, clicked: true})} className="landing-page__tabs__li">
-                                <a className="landing-page__tabs__li__select">
-                                    <img className="landing-page__tabs__li__image" src={svgMusic} alt="Calendar"></img>
-                                    <span className="landing-page__tabs__li__text">Excitingly Productive Widgets</span>
-                                </a>
-                            </li>
-                        </ul>
+                    <div className="landing-page__about__second">
+                        <div className="landing-page__about__second__left">
+                            <img src={imageWidgets} className="landing-page__about__second__image" />
+                        </div>
+                        <div className="landing-page__about__second__right">
+                            <h3 className="landing-page__about__second__header">Daily Task Tracking</h3>
+                            <p className="landing-page__about__second__description">
+                            Clicking on a calendar day will bring you to a dedicated task tracker for that day!
+                            </p>
+                            <h3 className="landing-page__about__second__header">Helpful Widgets</h3>
+                            <p className="landing-page__about__second__description">
+                            Minimum youtube access for music and specific tutorials? No problem! Need a pomodoro timer? Flow tools also has that!
+                            These windows are draggable and can be repositioned anywhere inside the application!
+                            </p>
+                        </div>
+                    </div>
+                    <div className="landing-page__about__third">
+                        <a onClick={loginDemo} className="landing-page__about__third__demo-button">Try a free demo!</a>
                     </div>
                 </div>
-                <div className="signup-now">
-                    <p className="signup-now__message">Sign up now or try a free demo! <a href="/signup">Proceed to Signup page</a>v2</p>
-                </div>
-            </div>
+            </section>
             )
     }
 
