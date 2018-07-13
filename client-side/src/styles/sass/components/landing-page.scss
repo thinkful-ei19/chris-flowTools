@@ -38,7 +38,11 @@
         }
 
         &__first {
-            padding: 10rem 10rem 0 10rem;
+            padding: 10rem;
+
+            @media (orientation: portrait) {
+                padding: 10rem 10rem 0rem 10rem;
+            }
 
             @include respond(phone) {
                 padding: 10rem;
@@ -84,7 +88,11 @@
         }
 
         &__second {
-            padding: 0 10rem 10rem 10rem;
+            padding: 10rem;
+
+            @media (orientation: portrait) {
+                padding: 0 10rem 10rem 10rem;
+            }
 
             &__left {
                 display: inline-block;

@@ -182,7 +182,10 @@ button {
     .landing-page__about {
       margin-top: 20vh; } }
   .landing-page__about__first {
-    padding: 10rem 10rem 0 10rem; }
+    padding: 10rem; }
+    @media (orientation: portrait) {
+      .landing-page__about__first {
+        padding: 10rem 10rem 0rem 10rem; } }
     @media (max-width: 40em) {
       .landing-page__about__first {
         padding: 10rem; } }
@@ -215,7 +218,10 @@ button {
       width: 100%;
       border: 1px solid grey; }
   .landing-page__about__second {
-    padding: 0 10rem 10rem 10rem; }
+    padding: 10rem; }
+    @media (orientation: portrait) {
+      .landing-page__about__second {
+        padding: 0 10rem 10rem 10rem; } }
     .landing-page__about__second__left {
       display: inline-block;
       width: 50%;
